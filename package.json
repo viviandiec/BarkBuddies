@@ -24,6 +24,7 @@
     "react": "16.8.3",
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-native-chatbot": "0.0.1-alpha.12",
     "react-native-deck-swiper": "^1.6.7",
     "react-native-web": "^0.11.4",
     "react-navigation": "^3.11.0"

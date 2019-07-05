@@ -9,7 +9,7 @@ class PictureScreen extends React.Component {
     render() {
         return (
             <View>
-                <Button title="Sign in!" onPress={() => this.props.navigation.navigate('App')} />
+                <Button title="Sign Up!" onPress={() => this.props.navigation.navigate('App')} />
             </View>
         );
     }

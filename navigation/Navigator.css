@@ -1,0 +1,20 @@
+ion-icon[class*="custom-"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+}
+
+ion-icon[class*="custom-icon1"] {
+    mask-image: url(../assets/img/customicon1.svg);
+}
+
+ion-icon[class*="custom-icon2"] {
+    mask-image: url(../assets/img/customicon2.svg);
+}
+
+ion-icon[class*="custom-icon3"] {
+    mask-image: url(../assets/img/customicon3.svg);
+}

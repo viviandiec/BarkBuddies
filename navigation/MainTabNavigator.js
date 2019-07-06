@@ -5,7 +5,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SwipeScreen from '../screens/SwipeScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import MessagesScreen from '../screens/MessagesScreen';
 
 const config = Platform.select({
     web: { headerMode: 'screen' },
@@ -49,27 +49,27 @@ SwipeStack.navigationOptions = {
 
 SwipeStack.path = '';
 
-const SettingsStack = createStackNavigator({
-        Settings: SettingsScreen,
+const MessagesStack = createStackNavigator({
+        Messages: MessagesScreen,
     },
     config
 );
 
-SettingsStack.navigationOptions = {
-    tabBarLabel: 'Settings',
+MessagesStack.navigationOptions = {
+    tabBarLabel: 'Messages',
     tabBarIcon: ({ focused }) => ( <
         TabBarIcon focused = { focused }
-        name = { Platform.OS === 'ios' ? 'ios-options' : 'md-options' }
+        name = { Platform.OS === 'ios' ? 'ios-chatboxes' : 'md-chatboxes' }
         />
     ),
 };
 
-SettingsStack.path = '';
+MessagesStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
     HomeStack,
     SwipeStack,
-    SettingsStack,
+    MessagesStack,
 });
 
 tabNavigator.path = '';

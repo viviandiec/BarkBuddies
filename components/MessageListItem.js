@@ -8,8 +8,8 @@ export default function MessageListItem(props) {
     <ListItem avatar>
       <Left style={{ width: 64 }}>
         <Thumbnail />
-        <Image source={props.largeAvatar} style={largeAvatar} />
-        <Image source={props.smallAvatar} style={smallAvatar} />
+        <Image source={{ uri: props.largeAvatar }} style={largeAvatar} />
+        <Image source={{ uri: props.smallAvatar }} style={smallAvatar} />
       </Left>
       <Body>
         <View
@@ -48,8 +48,8 @@ const smallAvatar = {
 };
 
 MessageListItem.propTypes = {
-  largeAvatar: PropTypes.oneOfType([PropTypes.object, PropTypes.number]).isRequired,
-  smallAvatar: PropTypes.oneOfType([PropTypes.object, PropTypes.number]).isRequired,
+  largeAvatar: PropTypes.string.isRequired,
+  smallAvatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired

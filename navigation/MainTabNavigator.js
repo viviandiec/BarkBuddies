@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SwipeScreen from '../screens/SwipeScreen';
 import MessagesScreen from '../screens/MessagesScreen';
+import ChatScreen from '../screens/ChatScreen';
 
 const config = Platform.select({
     web: { headerMode: 'screen' },
@@ -51,6 +52,7 @@ SwipeStack.path = '';
 
 const MessagesStack = createStackNavigator({
         Messages: MessagesScreen,
+        Chat: ChatScreen
     },
     config
 );

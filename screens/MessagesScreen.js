@@ -9,25 +9,25 @@ export default class SettingsScreen extends Component {
     super(props);
 
     this.state = {
-      messages: [
+      messengers: [
         {
-          largeAvatar: { uri: "http://placekitten.com/256/256" },
-          smallAvatar: { uri: "http://placekitten.com/128/128" },
+          largeAvatar: "http://placekitten.com/256/256",
+          smallAvatar: "http://placekitten.com/128/128",
           name: "Mrs. Meowmers",
+          time: "9:39 am",
+          message: "Go watch the new spiderman movie\nTom Holland is 😻"
+        },
+        {
+          largeAvatar: "http://placekitten.com/257/257",
+          smallAvatar: "http://placekitten.com/129/129",
+          name: "Mr. Meowmers",
           time: "3:43 pm",
           message:
             "Do you want to head to the park meow? I'm not kitten this time 😺"
         },
         {
-          largeAvatar: { uri: "http://placekitten.com/256/256" },
-          smallAvatar: { uri: "http://placekitten.com/128/128" },
-          name: "Mr. Meowmers",
-          time: "9:39 am",
-          message: "Go watch the new spiderman movie\nTom Holland is 😻"
-        },
-        {
-          largeAvatar: { uri: "http://placekitten.com/256/256" },
-          smallAvatar: { uri: "http://placekitten.com/128/128" },
+          largeAvatar: "http://placekitten.com/258/258",
+          smallAvatar: "http://placekitten.com/130/130",
           name: "Shiba Inu",
           time: "6:26 pm",
           message: "Meet me at the park in an hour\nI'll bring the treats"
@@ -41,14 +41,22 @@ export default class SettingsScreen extends Component {
       <Container>
         <Content>
           <List>
-            {this.state.messages.map((message, index) => (
-              <TouchableOpacity key={`${index}${JSON.stringify(message)}`}>
+            {this.state.messengers.map((messenger, index) => (
+              <TouchableOpacity
+                key={`${index}${JSON.stringify(messenger)}`}
+                onPress={() =>
+                  this.props.navigation.navigate("Chat", {
+                    name: messenger.name,
+                    avatar: messenger.largeAvatar
+                  })
+                }
+              >
                 <MessageListItem
-                  largeAvatar={message.largeAvatar}
-                  smallAvatar={message.smallAvatar}
-                  name={message.name}
-                  time={message.time}
-                  message={message.message}
+                  largeAvatar={messenger.largeAvatar}
+                  smallAvatar={messenger.smallAvatar}
+                  name={messenger.name}
+                  time={messenger.time}
+                  message={messenger.message}
                 />
               </TouchableOpacity>
             ))}

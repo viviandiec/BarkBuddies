@@ -22,8 +22,8 @@ export default class Example extends Component {
       messages: [
         {
           _id: 1,
-          text: "Hello developer",
-          createdAt: new Date(),
+          text: this.props.navigation.state.params.lastMessage,
+          createdAt: this.props.navigation.state.params.lastDate,
           user: {
             _id: 2,
             name: this.props.navigation.state.params.name,
@@ -50,7 +50,7 @@ export default class Example extends Component {
             _id: 1
           }}
         />
-        {Platform.OS === "android" ? <KeyboardSpacer /> : null}
+        {Platform.OS === "android" ? <KeyboardSpacer topSpacing={-42} /> : null}
       </View>
     );
   }

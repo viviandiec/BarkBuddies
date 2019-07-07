@@ -19,12 +19,18 @@ export default function MessageListItem(props) {
           }}
         >
           <Text>{props.name}</Text>
-          <Text note>{props.time}</Text>
+          <Text note>{convertToTimeString(props.date)}</Text>
         </View>
         <Text note>{props.message}</Text>
       </Body>
     </ListItem>
   );
+}
+
+function convertToTimeString(date) {
+  return `${date.getHours() % 12}:${date.getMinutes()} ${
+    date.getHours() > 12 ? "PM" : "AM"
+  }`;
 }
 
 const largeAvatar = {
@@ -51,6 +57,6 @@ MessageListItem.propTypes = {
   largeAvatar: PropTypes.string.isRequired,
   smallAvatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date),
   message: PropTypes.string.isRequired
 };

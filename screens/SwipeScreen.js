@@ -1,25 +1,20 @@
 import React from 'react';
 import {
-    ScrollView,
     StyleSheet,
     View,
-    Text,
-    Button,
-    Modal,
-    TouchableHighlight
 } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 import StyledModal from '../components/StyledModal';
+import { cards } from '../constants/Data';
+import Card from '../components/Card';
 
 class SwipeScreen extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            cards: ["hello", "kms", "lol", "i", "stole", "this", "code"],
             swipedAllCards: false,
-            swipeDirection: '',
-            cardIndex: 0,
-            modalVisible: false
+            modalVisible: false,
+            currentIndex: 0,
         }
     }
 
@@ -29,10 +24,10 @@ class SwipeScreen extends React.Component {
 
     renderCard = (card, index) => {
         return (
-            <View style={styles.card}>
-                <Text style={styles.text}>{card}</Text>
-
-            </View>
+            <Card
+                card={card}
+                index={index}
+            ></Card>
         )
     };
 
@@ -67,16 +62,13 @@ class SwipeScreen extends React.Component {
                     onSwiped={() => this.onSwiped('general')}
                     onSwipedLeft={() => this.onSwiped('left')}
                     onSwipedRight={() => this.onSwiped('right')}
-                    onTapCard={this.swipeLeft}
-                    cards={this.state.cards}
-                    cardIndex={this.state.cardIndex}
-                    cardVerticalMargin={80}
+                    cards={cards}
+                    infinite={true}
                     renderCard={this.renderCard}
                     onSwipedAll={this.onSwipedAllCards}
-                    stackSize={3}
                     verticalSwipe={false}
-                    stackSeparation={15}
-                    backgroundColor={"f7c5b8"}
+                    stackSize={3}
+                    backgroundColor={"#f7c5b8"}
                     overlayLabels={{
                         left: {
                             title: 'NOPE',
@@ -97,7 +89,7 @@ class SwipeScreen extends React.Component {
                             }
                         },
                         right: {
-                            title: 'LIKE',
+                            title: 'CHAT!',
                             style: {
                                 label: {
                                     backgroundColor: 'black',
@@ -130,7 +122,6 @@ class SwipeScreen extends React.Component {
     }
 }
 
-
 SwipeScreen.navigationOptions = {
     title: 'Swipe',
 };
@@ -138,20 +129,7 @@ SwipeScreen.navigationOptions = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f7c5b8',
-    },
-    card: {
-        flex: 1,
-        borderRadius: 4,
-        borderWidth: 2,
-        borderColor: '#E8E8E8',
-        justifyContent: 'center',
-        backgroundColor: 'white'
-    },
-    text: {
-        textAlign: 'center',
-        fontSize: 50,
-        backgroundColor: 'transparent'
+        backgroundColor: "#f7c5b8"
     },
     done: {
         textAlign: 'center',

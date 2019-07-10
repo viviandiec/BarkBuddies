@@ -4,12 +4,12 @@ import {
     StyleSheet,
     View,
     Text,
-    Button
+    Button,
+    Modal,
+    TouchableHighlight
 } from 'react-native';
-import Swiper from 'react-native-deck-swiper'
-
-// const Swipers = require('react-native-deck-swiper');
-// import {Swiper} from Swipers;
+import Swiper from 'react-native-deck-swiper';
+import StyledModal from '../components/StyledModal';
 
 class SwipeScreen extends React.Component {
     constructor(props) {
@@ -18,20 +18,33 @@ class SwipeScreen extends React.Component {
             cards: ["hello", "kms", "lol", "i", "stole", "this", "code"],
             swipedAllCards: false,
             swipeDirection: '',
-            cardIndex: 0
+            cardIndex: 0,
+            modalVisible: false
         }
+    }
+
+    componentWillUnmount() {
+        this.setState({ modalVisible: false })
     }
 
     renderCard = (card, index) => {
         return (
             <View style={styles.card}>
                 <Text style={styles.text}>{card}</Text>
+
             </View>
         )
     };
 
     onSwiped = (type) => {
-        console.log(`on swiped ${type}`)
+        switch (type) {
+            case "general":
+                return this.setState({ modalVisible: false })
+            case "right":
+                return this.setState({ modalVisible: true })
+            default:
+                return this.setState({ modalVisible: false })
+        }
     }
 
     onSwipedAllCards = () => {
@@ -54,8 +67,6 @@ class SwipeScreen extends React.Component {
                     onSwiped={() => this.onSwiped('general')}
                     onSwipedLeft={() => this.onSwiped('left')}
                     onSwipedRight={() => this.onSwiped('right')}
-                    onSwipedTop={() => this.onSwiped('top')}
-                    onSwipedBottom={() => this.onSwiped('bottom')}
                     onTapCard={this.swipeLeft}
                     cards={this.state.cards}
                     cardIndex={this.state.cardIndex}
@@ -63,24 +74,10 @@ class SwipeScreen extends React.Component {
                     renderCard={this.renderCard}
                     onSwipedAll={this.onSwipedAllCards}
                     stackSize={3}
+                    verticalSwipe={false}
                     stackSeparation={15}
+                    backgroundColor={"f7c5b8"}
                     overlayLabels={{
-                        bottom: {
-                            title: 'BLEAH',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }
-                            }
-                        },
                         left: {
                             title: 'NOPE',
                             style: {
@@ -117,32 +114,22 @@ class SwipeScreen extends React.Component {
                                 }
                             }
                         },
-                        top: {
-                            title: 'SUPER LIKE',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }
-                            }
-                        }
                     }}
                     animateOverlayLabelsOpacity
                     animateCardOpacity
-                    swipeBackCard
-                >
+                    swipeBackCard>
                 </Swiper>
+                {this.state.modalVisible ?
+                    <StyledModal
+                        visible={true}
+                    >
+                    </StyledModal> : <View></View>
+                }
             </View>
         )
     }
 }
+
 
 SwipeScreen.navigationOptions = {
     title: 'Swipe',
@@ -151,7 +138,7 @@ SwipeScreen.navigationOptions = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF'
+        backgroundColor: '#f7c5b8',
     },
     card: {
         flex: 1,

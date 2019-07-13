@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { selectAssetSource } from 'expo-asset/build/AssetSources';
 
-class SignUpScreen extends React.Component {
+class SignUpScreenName extends React.Component {
     constructor(props) {
         super(props);
 
@@ -17,21 +18,29 @@ class SignUpScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                {/* <Button title="Sign in!" onPress={() => this.props.navigation.navigate('UserInfoName')} /> */}
-                {/* <Button title="Sign up!" onPress={() => this.props.navigation.navigate('Other')} /> */}
+                <View style={styles.logoContainer}>
+                    <TouchableOpacity>
+                        <Image
+                            style={styles.logo}
+                            source={require('../assets/images/ProfilePicture.png')}
+                        />
+                    </TouchableOpacity>
+                    <Text>Upload a profile picture!</Text>
+                </View>
+
                 <TextInput
-                    placeholder="Enter your email"
+                    placeholder="Full Name"
                     placeholderTextColor="black"
                     style={styles.input}
                 />
 
                 <TextInput
-                    placeholder="Enter your password"
+                    placeholder="Username"
                     placeholderTextColor="black"
                     style={styles.input}
                 />
                 
-                <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('UserInfoName')}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('App')} >
                     <Text style={styles.buttonText}>NEXT</Text>
                 </TouchableOpacity>
 
@@ -40,12 +49,12 @@ class SignUpScreen extends React.Component {
     }
 }
 
-export default SignUpScreen;
+export default SignUpScreenName;
 
 const styles = StyleSheet.create({
     container: {
         padding: 20,
-        paddingTop: 40
+        paddingHorizontal: 30
     },
     input: {
         height: 55,
@@ -69,5 +78,16 @@ const styles = StyleSheet.create({
     buttonText: {
         textAlign: 'center',
         color: '#FFFFFF'
+    },
+    logoContainer: {
+        alignItems: 'center',
+        flexGrow: 1,
+        justifyContent: 'center',
+        paddingVertical: 30
+
+    },
+    logo: {
+        width: 100, 
+        height: 100
     }
 });

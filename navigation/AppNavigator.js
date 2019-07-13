@@ -4,13 +4,15 @@ import { createAppContainer, createSwitchNavigator, createStackNavigator } from 
 import MainTabNavigator from './MainTabNavigator';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
+import SignUpScreenName from '../screens/SignUpScreenName';
 import DogInfoScreen from '../screens/DogInfoScreen';
 import PictureScreen from '../screens/PictureScreen';
 
 
-const AuthStack = createStackNavigator({ SignIn: SignInScreen });
-const SignUpStack = createStackNavigator({ 
-  UserInfo: SignUpScreen, 
+const SignUpStack = createStackNavigator({
+  SignIn: SignInScreen,
+  UserInfo: SignUpScreen,
+  UserInfoName: SignUpScreenName, 
   DogInfo: DogInfoScreen, 
   Images: PictureScreen
 });
@@ -20,10 +22,9 @@ export default createAppContainer(
     // You could add another route here for authentication.
     // Read more at https://reactnavigation.org/docs/en/auth-flow.html
     App: MainTabNavigator,
-    Auth: AuthStack,
     Other: SignUpStack
   },
     {
-      initialRouteName: 'Auth',
+      initialRouteName: 'Other',
     })
 );

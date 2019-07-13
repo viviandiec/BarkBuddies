@@ -37,7 +37,7 @@ class SignInScreen extends React.Component {
                         placeholderTextColor="black"
                         style={styles.input}
                     />
-                    
+
                     <TouchableOpacity style={styles.btnEye}>
                         <Icon name={'ios-eye'} size={26}>
                         </Icon>
@@ -51,8 +51,6 @@ class SignInScreen extends React.Component {
                 <Button
                     title="Don't have an account? Sign up" onPress={() => this.props.navigation.navigate('UserInfo')}
                 />
-
-
             </View>
         );
     }
@@ -73,7 +71,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         paddingLeft: 45,
         borderColor: '#fff',
-        color: 'rgba(255, 255, 255, 0.7)'
+        color: 'black'
     },
     inputIcon: {
         position: 'absolute',

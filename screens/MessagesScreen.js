@@ -4,13 +4,17 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 import MessageListItem from "../components/MessageListItem";
 
-export default class SettingsScreen extends Component {
+import { connect } from "react-redux";
+import { sendMessage } from "../actions/actions";
+
+export class MessagesScreen extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       messengers: [
         {
+          username: "mrs_meowmers",
           largeAvatar: "http://placekitten.com/256/256",
           smallAvatar: "http://placekitten.com/128/128",
           name: "Mrs. Meowmers",
@@ -18,6 +22,7 @@ export default class SettingsScreen extends Component {
           message: "Go watch the new spiderman movie\nTom Holland is 😻"
         },
         {
+          username: "mr_meowmers",
           largeAvatar: "http://placekitten.com/257/257",
           smallAvatar: "http://placekitten.com/129/129",
           name: "Mr. Meowmers",
@@ -26,6 +31,7 @@ export default class SettingsScreen extends Component {
             "Do you want to head to the park meow? I'm not kitten this time 😺"
         },
         {
+          username: "shiba_inu",
           largeAvatar: "http://placekitten.com/258/258",
           smallAvatar: "http://placekitten.com/130/130",
           name: "Shiba Inu",
@@ -34,6 +40,28 @@ export default class SettingsScreen extends Component {
         }
       ]
     };
+
+    this.state.messengers.forEach(messenger =>
+      this.props.sendMessage(
+        messenger.username,
+        1,
+        messenger.date,
+        messenger.message,
+        {
+          id: 2,
+          name: messenger.name,
+          avatar: messenger.largeAvatar,
+          avatar2: messenger.smallAvatar,
+          username: messenger.username
+        }
+      )
+    );
+  }
+
+  orderedMessages(messages) {
+    return Object.keys(messages)
+      .map(key => messages[key][0])
+      .sort((a, b) => a.createdAt > b.createdAt);
   }
 
   render() {
@@ -46,6 +74,7 @@ export default class SettingsScreen extends Component {
                 key={`${index}${JSON.stringify(messenger)}`}
                 onPress={() =>
                   this.props.navigation.navigate("Chat", {
+                    username: messenger.username,
                     name: messenger.name,
                     avatar: messenger.largeAvatar,
                     lastMessage: messenger.message,
@@ -69,6 +98,15 @@ export default class SettingsScreen extends Component {
   }
 }
 
-SettingsScreen.navigationOptions = {
+MessagesScreen.navigationOptions = {
   title: "Messages"
 };
+
+const mapStateToProps = state => ({
+  chat: state.chat
+});
+
+export default connect(
+  mapStateToProps,
+  { sendMessage }
+)(MessagesScreen);

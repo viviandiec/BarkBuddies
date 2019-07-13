@@ -31,10 +31,10 @@ export const setSignedUp = signedUp => dispatch => {
   });
 };
 
-export const sendMessage = (_id, createdAt, text, user) => dispatch => {
+export const sendMessage = (username, _id, createdAt, text, user) => dispatch => {
   dispatch({
     type: SEND_MESSAGE,
-    payload: { _id, createdAt, text, user }
+    payload: { username, _id, createdAt, text, user }
   });
 };
 

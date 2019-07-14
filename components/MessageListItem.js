@@ -21,7 +21,9 @@ export default function MessageListItem(props) {
           <Text>{props.name}</Text>
           <Text note>{convertToTimeString(props.date)}</Text>
         </View>
-        <Text note>{props.message}</Text>
+        <Text note numberOfLines={2}>
+          {props.message}
+        </Text>
       </Body>
     </ListItem>
   );

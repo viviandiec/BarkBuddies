@@ -58,10 +58,11 @@ export class MessagesScreen extends Component {
     );
   }
 
-  orderedMessages(messages) {
+  orderedMessages() {
+    let messages = this.props.chat;
     return Object.keys(messages)
       .map(key => messages[key][0])
-      .sort((a, b) => a.createdAt > b.createdAt);
+      .sort((a, b) => a.createdAt < b.createdAt);
   }
 
   render() {
@@ -69,25 +70,26 @@ export class MessagesScreen extends Component {
       <Container>
         <Content>
           <List>
-            {this.state.messengers.map((messenger, index) => (
+            {this.orderedMessages().map((messenger, index) => (
               <TouchableOpacity
                 key={`${index}${JSON.stringify(messenger)}`}
                 onPress={() =>
                   this.props.navigation.navigate("Chat", {
-                    username: messenger.username,
-                    name: messenger.name,
-                    avatar: messenger.largeAvatar,
-                    lastMessage: messenger.message,
-                    lastDate: messenger.date
+                    username: messenger.user.username,
+                    name: messenger.user.name,
+                    avatar: messenger.user.avatar,
+                    avatar2: messenger.user.avatar2,
+                    lastMessage: messenger.text,
+                    lastDate: messenger.createdAt
                   })
                 }
               >
                 <MessageListItem
-                  largeAvatar={messenger.largeAvatar}
-                  smallAvatar={messenger.smallAvatar}
-                  name={messenger.name}
-                  date={messenger.date}
-                  message={messenger.message}
+                  largeAvatar={messenger.user.avatar}
+                  smallAvatar={messenger.user.avatar2}
+                  name={messenger.user.name}
+                  date={messenger.createdAt}
+                  message={messenger.text}
                 />
               </TouchableOpacity>
             ))}

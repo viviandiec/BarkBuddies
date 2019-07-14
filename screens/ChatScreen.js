@@ -25,7 +25,9 @@ export class ChatScreen extends Component {
 
   componentWillMount() {
     this.setState({
-      messages: this.props.chat[this.props.navigation.state.params.username].slice()
+      messages: this.props.chat[
+        this.props.navigation.state.params.username
+      ].slice()
     });
   }
 
@@ -35,7 +37,13 @@ export class ChatScreen extends Component {
       messages[0]._id,
       messages[0].createdAt,
       messages[0].text,
-      messages[0].user
+      {
+        avatar: this.props.navigation.state.params.avatar,
+        avatar2: this.props.navigation.state.params.avatar2,
+        name: this.props.navigation.state.params.name,
+        username: this.props.navigation.state.params.username,
+        ...messages[0].user
+      }
     );
     this.setState(previousState => ({
       messages: GiftedChat.append(previousState.messages, messages)

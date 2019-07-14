@@ -8,7 +8,6 @@ import {
   Image,
   ScrollView
 } from "react-native";
-import { selectAssetSource } from "expo-asset/build/AssetSources";
 import Icon from "react-native-vector-icons/Ionicons";
 import KeyboardSpacer from "react-native-keyboard-spacer";
 
@@ -57,8 +56,9 @@ class SignUpScreenName extends React.Component {
               />
             ) : null}
 
+            <Text style={styles.label}>Full Name</Text>
             <TextInput
-              placeholder="Full Name"
+              placeholder="Tell us your name :)"
               placeholderTextColor="black"
               style={styles.input}
               onChangeText={name => this.setState({ name })}
@@ -76,8 +76,9 @@ class SignUpScreenName extends React.Component {
               />
             ) : null}
 
+            <Text style={styles.label}>Username</Text>
             <TextInput
-              placeholder="Username"
+              placeholder="Pick a username!"
               placeholderTextColor="black"
               style={styles.input}
               onChangeText={username => this.setState({ username })}
@@ -89,7 +90,7 @@ class SignUpScreenName extends React.Component {
 
           <TouchableOpacity
             style={styles.buttonContainer}
-            onPress={() => this.props.navigation.navigate("App")}
+            onPress={() => this.props.navigation.navigate("DogInfo")}
             style={
               !this.validName() || !this.validUsername()
                 ? styles.buttonContainerDisabled
@@ -123,9 +124,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff"
   },
+  label:{
+    color: 'black',
+    paddingHorizontal:10,
+    paddingBottom: 5
+  },
   inputIcon: {
     position: "absolute",
-    top: 14,
+    top: 35,
     right: 25,
     zIndex: 1,
     opacity: 0.5,

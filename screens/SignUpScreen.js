@@ -45,7 +45,7 @@ class SignUpScreen extends React.Component {
                 style={styles.inputIcon}
               />
             ) : null}
-
+            <Text style={styles.label}>Email</Text>
             <TextInput
               placeholder="Enter your email"
               placeholderTextColor="black"
@@ -66,7 +66,7 @@ class SignUpScreen extends React.Component {
                 style={styles.inputIcon}
               />
             ) : null}
-
+            <Text style={styles.label}>Password</Text>
             <TextInput
               placeholder="Enter your password"
               placeholderTextColor="black"
@@ -114,9 +114,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff"
   },
+  label:{
+    color: 'black',
+    paddingHorizontal:10,
+    paddingBottom: 5
+  },
   inputIcon: {
     position: "absolute",
-    top: 14,
+    top: 35,
     right: 25,
     zIndex: 1,
     opacity: 0.5,

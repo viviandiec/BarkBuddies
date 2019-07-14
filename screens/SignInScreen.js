@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   Button,
   Image,
-  Dimensions,
   ScrollView
 } from "react-native";
+import { Item, Label } from "native-base";
 import Icon from "react-native-vector-icons/Ionicons";
 import KeyboardSpacer from "react-native-keyboard-spacer";
 
@@ -35,14 +35,16 @@ class SignInScreen extends React.Component {
 
           <View>
             <Icon name={"ios-person"} size={28} style={styles.inputIcon} />
+
             <TextInput
-              placeholder="Username"
-              placeholderTextColor="black"
-              style={styles.input}
-              textContentType="username"
-              autoCorrect={false}
-              autoCapitalize="none"
-            />
+                placeholder="Username"
+                placeholderTextColor="black"
+                style={styles.input}
+                textContentType="username"
+                autoCorrect={false}
+                autoCapitalize="none"
+              />
+
           </View>
 
           <View>

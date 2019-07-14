@@ -46,8 +46,9 @@ class DogInfoScreen extends React.Component {
                 <View>
                     {this.validName() ? (<Icon name={'ios-checkmark-circle'} size={28} style={styles.inputIcon}></Icon>) : null}
 
+                    <Text style={styles.label}>Name</Text>
                     <TextInput
-                        placeholder="Name"
+                        placeholder="Enter your dog's name"
                         placeholderTextColor="black"
                         style={styles.input}
                         onChangeText={name => this.setState({name})}
@@ -57,8 +58,9 @@ class DogInfoScreen extends React.Component {
                 <View>
                     {this.validAge() ? (<Icon name={'ios-checkmark-circle'} size={28} style={styles.inputIcon}></Icon>) : null}
 
+                    <Text style={styles.label}>Age</Text>
                     <TextInput
-                        placeholder="Age"
+                        placeholder="How old is your dog?"
                         placeholderTextColor="black"
                         style={styles.input}
                         onChangeText={age => this.setState({age})}
@@ -68,8 +70,9 @@ class DogInfoScreen extends React.Component {
                 <View>
                     {this.validBreed() ? (<Icon name={'ios-checkmark-circle'} size={28} style={styles.inputIcon}></Icon>) : null}
 
+                    <Text style={styles.label}>Breed</Text>
                     <TextInput
-                        placeholder="Breed"
+                        placeholder="Enter your dog's breed"
                         placeholderTextColor="black"
                         style={styles.input}
                         onChangeText={breed => this.setState({breed})}
@@ -105,14 +108,19 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff'
     },
+    label:{
+        color: 'black',
+        paddingHorizontal:10,
+        paddingBottom: 5
+      },
     inputIcon: {
-        position: 'absolute',
-        top: 14,
+        position: "absolute",
+        top: 35,
         right: 25,
         zIndex: 1,
         opacity: 0.5,
-        color: 'green'
-    },
+        color: "green"
+      },
     buttonContainer: {
         marginTop:10,
         paddingTop:15,

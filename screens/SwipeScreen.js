@@ -123,7 +123,7 @@ class SwipeScreen extends React.Component {
 }
 
 SwipeScreen.navigationOptions = {
-    title: 'Swipe',
+    header: null,
 };
 
 const styles = StyleSheet.create({

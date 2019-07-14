@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, Image, StyleSheet } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -25,7 +25,7 @@ HomeStack.navigationOptions = {
         TabBarIcon focused = { focused }
         name = {
             Platform.OS === 'ios' ?
-            `ios-information-circle${focused ? '' : '-outline'}` : 'md-information-circle'
+            `ios-home${focused ? '' : '-outline'}` : 'md-home'
         }
         />
     ),
@@ -40,12 +40,16 @@ const SwipeStack = createStackNavigator({
 );
 
 SwipeStack.navigationOptions = {
-    tabBarLabel: 'Swipe',
-    tabBarIcon: ({ focused }) => ( <
-        TabBarIcon focused = { focused }
-        name = { Platform.OS === 'ios' ? 'ios-link' : 'md-link' }
-        />
-    ),
+  tabBarLabel: 'Swipe',
+  tabBarIcon: ({ focused }) => (
+    <Image
+      source={require('../assets/images/icon.png')}
+      style={{
+        opacity: focused ? 1 : 0.2,
+        transform: [{ scaleX: 0.1 }, { scaleY: 0.1 }]
+      }}
+    />
+  )
 };
 
 SwipeStack.path = '';
@@ -71,8 +75,12 @@ MessagesStack.path = '';
 const tabNavigator = createBottomTabNavigator({
     HomeStack,
     SwipeStack,
-    MessagesStack,
-});
+    MessagesStack
+  },
+  {
+    initialRouteName: "SwipeStack"
+  }
+);
 
 tabNavigator.path = '';
 

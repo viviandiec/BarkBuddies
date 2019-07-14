@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   Button,
   Image,
-  Dimensions
+  Dimensions,
+  ScrollView
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { Container, Content } from "native-base";
 import KeyboardSpacer from "react-native-keyboard-spacer";
 
 class SignInScreen extends React.Component {
@@ -25,58 +25,62 @@ class SignInScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Container>
-          <Content style={styles.container}>
-            <View style={styles.logoContainer}>
-              <Image
-                style={styles.logo}
-                source={require("../assets/images/icon.png")}
-              />
-            </View>
-
-            <View>
-              <Icon name={"ios-person"} size={28} style={styles.inputIcon} />
-              <TextInput
-                placeholder="Username"
-                placeholderTextColor="black"
-                style={styles.input}
-              />
-            </View>
-
-            <View>
-              <Icon name={"ios-lock"} size={28} style={styles.inputIcon} />
-
-              <TextInput
-                placeholder="Password"
-                placeholderTextColor="black"
-                style={styles.input}
-                secureTextEntry={this.state.hidePassword}
-              />
-
-              <TouchableOpacity style={styles.btnEye}>
-                <Icon
-                  name={"ios-eye"}
-                  size={26}
-                  style={this.state.hidePassword ? null : { color: "red" }}
-                  onPress={() =>
-                    this.setState({ hidePassword: !this.state.hidePassword })
-                  }
-                />
-              </TouchableOpacity>
-            </View>
-
-            <TouchableOpacity
-              style={styles.buttonContainer}
-              onPress={() => this.props.navigation.navigate("App")}
-            >
-              <Text style={styles.buttonText}>LOGIN</Text>
-            </TouchableOpacity>
-            <Button
-              title="Don't have an account? Sign up"
-              onPress={() => this.props.navigation.navigate("UserInfo")}
+        <ScrollView style={styles.container}>
+          <View style={styles.logoContainer}>
+            <Image
+              style={styles.logo}
+              source={require("../assets/images/icon.png")}
             />
-          </Content>
-        </Container>
+          </View>
+
+          <View>
+            <Icon name={"ios-person"} size={28} style={styles.inputIcon} />
+            <TextInput
+              placeholder="Username"
+              placeholderTextColor="black"
+              style={styles.input}
+              textContentType="username"
+              autoCorrect={false}
+              autoCapitalize="none"
+            />
+          </View>
+
+          <View>
+            <Icon name={"ios-lock"} size={28} style={styles.inputIcon} />
+
+            <TextInput
+              placeholder="Password"
+              placeholderTextColor="black"
+              style={styles.input}
+              secureTextEntry={this.state.hidePassword}
+              textContentType="password"
+              autoCorrect={false}
+              autoCapitalize="none"
+            />
+
+            <TouchableOpacity style={styles.btnEye}>
+              <Icon
+                name={"ios-eye"}
+                size={26}
+                style={this.state.hidePassword ? null : { color: "red" }}
+                onPress={() =>
+                  this.setState({ hidePassword: !this.state.hidePassword })
+                }
+              />
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => this.props.navigation.navigate("App")}
+          >
+            <Text style={styles.buttonText}>LOGIN</Text>
+          </TouchableOpacity>
+          <Button
+            title="Don't have an account? Sign up"
+            onPress={() => this.props.navigation.navigate("UserInfo")}
+          />
+        </ScrollView>
         <KeyboardSpacer />
       </View>
     );

@@ -1,14 +1,29 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
-import { selectAssetSource } from 'expo-asset/build/AssetSources';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 class DogInfoScreen extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            text: undefined
+            name: "",
+            age: "",
+            breed: ""
         }
+    }
+
+    validName() {
+        return (this.state.name.length > 0)
+    }
+
+    validAge() {
+        var re = /^[0-9\b]+$/
+        return (re.test(this.state.age))
+    }
+
+    validBreed() {
+        return (this.state.breed.length > 0)
     }
 
     static navigationOptions = {
@@ -28,25 +43,44 @@ class DogInfoScreen extends React.Component {
                     <Text>Upload a picture of your dog!</Text>
                 </View>
 
-                <TextInput
-                    placeholder="Name"
-                    placeholderTextColor="black"
-                    style={styles.input}
-                />
+                <View>
+                    {this.validName() ? (<Icon name={'ios-checkmark-circle'} size={28} style={styles.inputIcon}></Icon>) : null}
 
-                <TextInput
-                    placeholder="Age"
-                    placeholderTextColor="black"
-                    style={styles.input}
-                />
+                    <TextInput
+                        placeholder="Name"
+                        placeholderTextColor="black"
+                        style={styles.input}
+                        onChangeText={name => this.setState({name})}
+                    />
+                </View>
 
-                <TextInput
-                    placeholder="Breed"
-                    placeholderTextColor="black"
-                    style={styles.input}
-                />
+                <View>
+                    {this.validAge() ? (<Icon name={'ios-checkmark-circle'} size={28} style={styles.inputIcon}></Icon>) : null}
+
+                    <TextInput
+                        placeholder="Age"
+                        placeholderTextColor="black"
+                        style={styles.input}
+                        onChangeText={age => this.setState({age})}
+                    />
+                </View>
+
+                <View>
+                    {this.validBreed() ? (<Icon name={'ios-checkmark-circle'} size={28} style={styles.inputIcon}></Icon>) : null}
+
+                    <TextInput
+                        placeholder="Breed"
+                        placeholderTextColor="black"
+                        style={styles.input}
+                        onChangeText={breed => this.setState({breed})}
+                    />
+                </View>
+
                 
-                <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('App')} >
+                <TouchableOpacity 
+                    style={(!this.validName() || !this.validAge() || !this.validBreed()) ? styles.buttonContainerDisabled : styles.buttonContainer}
+                    onPress={() => this.props.navigation.navigate('App')} 
+                    disabled={!this.validName() || !this.validAge() || !this.validBreed()}>
                     <Text style={styles.buttonText}>FINISH PROFILE</Text>
                 </TouchableOpacity>
             </View>
@@ -71,6 +105,14 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff'
     },
+    inputIcon: {
+        position: 'absolute',
+        top: 14,
+        right: 25,
+        zIndex: 1,
+        opacity: 0.5,
+        color: 'green'
+    },
     buttonContainer: {
         marginTop:10,
         paddingTop:15,
@@ -83,6 +125,16 @@ const styles = StyleSheet.create({
     buttonText: {
         textAlign: 'center',
         color: '#FFFFFF'
+    },
+    buttonContainerDisabled: {
+        marginTop: 10,
+        paddingTop: 15,
+        paddingBottom: 15,
+        backgroundColor: '#ffcb0c',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#fff',
+        opacity: 0.5
     },
     logoContainer: {
         alignItems: 'center',

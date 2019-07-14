@@ -13,7 +13,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { Container, Content } from "native-base";
 import KeyboardSpacer from "react-native-keyboard-spacer";
 
-const { width: WIDTH } = Dimensions.get("window");
 class SignInScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -123,7 +122,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    //backgroundColor:'#00BCD4',
     backgroundColor: "#ffcb0c",
     borderRadius: 10,
     borderWidth: 1,

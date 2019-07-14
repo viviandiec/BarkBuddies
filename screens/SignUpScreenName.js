@@ -1,19 +1,29 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { selectAssetSource } from 'expo-asset/build/AssetSources';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 class SignUpScreenName extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            text: undefined
+            name: "",
+            username: ""
         }
     }
 
     static navigationOptions = {
         title: 'Tell us about yourself!',
     };
+
+    validName() {
+        return (this.state.name.length > 0)
+    }
+
+    validUsername() {
+        return (this.state.username.length > 0)
+    }
 
     render() {
         return (
@@ -28,19 +38,32 @@ class SignUpScreenName extends React.Component {
                     <Text>Upload a profile picture!</Text>
                 </View>
 
-                <TextInput
-                    placeholder="Full Name"
-                    placeholderTextColor="black"
-                    style={styles.input}
-                />
+                <View>
+                    {this.validName() ? (<Icon name={'ios-checkmark-circle'} size={28} style={styles.inputIcon}></Icon>) : null}
 
-                <TextInput
-                    placeholder="Username"
-                    placeholderTextColor="black"
-                    style={styles.input}
-                />
+                    <TextInput
+                        placeholder="Full Name"
+                        placeholderTextColor="black"
+                        style={styles.input}
+                        onChangeText={name => this.setState({name})}
+                    />
+                </View>
+
+                <View>
+                    {this.validUsername() ? (<Icon name={'ios-checkmark-circle'} size={28} style={styles.inputIcon}></Icon>) : null}
+
+                    <TextInput
+                        placeholder="Username"
+                        placeholderTextColor="black"
+                        style={styles.input}
+                        onChangeText={username => this.setState({username})}
+                    />
+                </View>
                 
-                <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('App')} >
+                <TouchableOpacity style={styles.buttonContainer}
+                    onPress={() => this.props.navigation.navigate('App')}
+                    style={(!this.validName() || !this.validUsername()) ? styles.buttonContainerDisabled : styles.buttonContainer}
+                    disabled={!this.validName() || !this.validUsername()} >
                     <Text style={styles.buttonText}>NEXT</Text>
                 </TouchableOpacity>
 
@@ -66,6 +89,14 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff'
     },
+    inputIcon: {
+        position: 'absolute',
+        top: 14,
+        right: 25,
+        zIndex: 1,
+        opacity: 0.5,
+        color: 'green'
+    },
     buttonContainer: {
         marginTop:10,
         paddingTop:15,
@@ -75,6 +106,16 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff'
     },
+    buttonContainerDisabled: {
+        marginTop: 10,
+        paddingTop: 15,
+        paddingBottom: 15,
+        backgroundColor: '#ffcb0c',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#fff',
+        opacity: 0.5
+    },   
     buttonText: {
         textAlign: 'center',
         color: '#FFFFFF'

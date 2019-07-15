@@ -38,7 +38,7 @@ class SignInScreen extends React.Component {
 
             <TextInput
                 placeholder="Username"
-                placeholderTextColor="black"
+                placeholderTextColor="gray"
                 style={styles.input}
                 textContentType="username"
                 autoCorrect={false}
@@ -52,7 +52,7 @@ class SignInScreen extends React.Component {
 
             <TextInput
               placeholder="Password"
-              placeholderTextColor="black"
+              placeholderTextColor="gray"
               style={styles.input}
               secureTextEntry={this.state.hidePassword}
               textContentType="password"

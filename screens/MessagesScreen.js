@@ -10,52 +10,6 @@ import { sendMessage } from "../actions/actions";
 export class MessagesScreen extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      messengers: [
-        {
-          username: "mrs_meowmers",
-          largeAvatar: "http://placekitten.com/256/256",
-          smallAvatar: "http://placekitten.com/128/128",
-          name: "Mrs. Meowmers",
-          date: new Date(2019, 6, 6, 9, 39, 30),
-          message: "Go watch the new spiderman movie\nTom Holland is 😻"
-        },
-        {
-          username: "mr_meowmers",
-          largeAvatar: "http://placekitten.com/257/257",
-          smallAvatar: "http://placekitten.com/129/129",
-          name: "Mr. Meowmers",
-          date: new Date(2019, 6, 6, 15, 43, 23),
-          message:
-            "Do you want to head to the park meow? I'm not kitten this time 😺"
-        },
-        {
-          username: "shiba_inu",
-          largeAvatar: "http://placekitten.com/258/258",
-          smallAvatar: "http://placekitten.com/130/130",
-          name: "Shiba Inu",
-          date: new Date(2019, 6, 6, 18, 26, 51),
-          message: "Meet me at the park in an hour\nI'll bring the treats"
-        }
-      ]
-    };
-
-    this.state.messengers.forEach(messenger =>
-      this.props.sendMessage(
-        messenger.username,
-        1,
-        messenger.date,
-        messenger.message,
-        {
-          id: 2,
-          name: messenger.name,
-          avatar: messenger.largeAvatar,
-          avatar2: messenger.smallAvatar,
-          username: messenger.username
-        }
-      )
-    );
   }
 
   orderedMessages() {

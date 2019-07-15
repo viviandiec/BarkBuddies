@@ -59,7 +59,7 @@ class SignUpScreenName extends React.Component {
             <Text style={styles.label}>Full Name</Text>
             <TextInput
               placeholder="Tell us your name :)"
-              placeholderTextColor="black"
+              placeholderTextColor="gray"
               style={styles.input}
               onChangeText={name => this.setState({ name })}
               textContentType="name"
@@ -79,7 +79,7 @@ class SignUpScreenName extends React.Component {
             <Text style={styles.label}>Username</Text>
             <TextInput
               placeholder="Pick a username!"
-              placeholderTextColor="black"
+              placeholderTextColor="gray"
               style={styles.input}
               onChangeText={username => this.setState({ username })}
               textContentType="username"

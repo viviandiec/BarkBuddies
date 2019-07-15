@@ -30,7 +30,7 @@ export default function MessageListItem(props) {
 }
 
 function convertToTimeString(date) {
-  return `${date.getHours() === 0 ? "12" : date.getHours() % 12}:${
+  return `${date.getHours() % 12 === 0 ? "12" : date.getHours() % 12}:${
     date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
   } ${date.getHours() >= 12 ? "PM" : "AM"}`;
 }

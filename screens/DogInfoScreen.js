@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
+import KeyboardSpacer from "react-native-keyboard-spacer";
 
 class DogInfoScreen extends React.Component {
     constructor(props) {
@@ -32,7 +33,8 @@ class DogInfoScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+        <View style={{ flex: 1 }}>
+            <ScrollView style={styles.container}>
                 <View style={styles.logoContainer}>
                     <TouchableOpacity>
                         <Image
@@ -49,9 +51,11 @@ class DogInfoScreen extends React.Component {
                     <Text style={styles.label}>Name</Text>
                     <TextInput
                         placeholder="Enter your dog's name"
-                        placeholderTextColor="black"
+                        placeholderTextColor="gray"
                         style={styles.input}
                         onChangeText={name => this.setState({name})}
+                        textContentType="name"
+                        autoCapitalize="words"
                     />
                 </View>
 
@@ -61,9 +65,10 @@ class DogInfoScreen extends React.Component {
                     <Text style={styles.label}>Age</Text>
                     <TextInput
                         placeholder="How old is your dog?"
-                        placeholderTextColor="black"
+                        placeholderTextColor="gray"
                         style={styles.input}
                         onChangeText={age => this.setState({age})}
+                        keyboardType="numeric"
                     />
                 </View>
 
@@ -73,20 +78,22 @@ class DogInfoScreen extends React.Component {
                     <Text style={styles.label}>Breed</Text>
                     <TextInput
                         placeholder="Enter your dog's breed"
-                        placeholderTextColor="black"
+                        placeholderTextColor="gray"
                         style={styles.input}
                         onChangeText={breed => this.setState({breed})}
                     />
                 </View>
 
-                
-                <TouchableOpacity 
+
+                <TouchableOpacity
                     style={(!this.validName() || !this.validAge() || !this.validBreed()) ? styles.buttonContainerDisabled : styles.buttonContainer}
-                    onPress={() => this.props.navigation.navigate('App')} 
+                    onPress={() => this.props.navigation.navigate('App')}
                     disabled={!this.validName() || !this.validAge() || !this.validBreed()}>
                     <Text style={styles.buttonText}>FINISH PROFILE</Text>
                 </TouchableOpacity>
-            </View>
+            </ScrollView>
+            <KeyboardSpacer />
+        </View>
         );
     }
 }
@@ -102,7 +109,7 @@ const styles = StyleSheet.create({
         height: 55,
         backgroundColor: '#eee',
         marginBottom: 20,
-        color: '#000', 
+        color: '#000',
         paddingHorizontal: 10,
         borderRadius:10,
         borderWidth: 1,
@@ -152,7 +159,7 @@ const styles = StyleSheet.create({
 
     },
     logo: {
-        width: 100, 
+        width: 100,
         height: 100
     }
 });

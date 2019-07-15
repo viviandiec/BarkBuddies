@@ -48,7 +48,7 @@ class SignUpScreen extends React.Component {
             <Text style={styles.label}>Email</Text>
             <TextInput
               placeholder="Enter your email"
-              placeholderTextColor="black"
+              placeholderTextColor="gray"
               style={styles.input}
               onChangeText={email => this.setState({ email })}
               keyboardType="email-address"
@@ -69,7 +69,7 @@ class SignUpScreen extends React.Component {
             <Text style={styles.label}>Password</Text>
             <TextInput
               placeholder="Enter your password"
-              placeholderTextColor="black"
+              placeholderTextColor="gray"
               style={styles.input}
               onChangeText={password => this.setState({ password })}
               secureTextEntry={true}

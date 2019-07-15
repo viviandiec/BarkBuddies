@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import SwipeScreen from '../screens/SwipeScreen';
 import MessagesScreen from '../screens/MessagesScreen';
 import ChatScreen from '../screens/ChatScreen';
+import DescriptionScreen from '../screens/DescriptionScreen';
 
 const config = Platform.select({
     web: { headerMode: 'screen' },
@@ -35,6 +36,7 @@ HomeStack.path = '';
 
 const SwipeStack = createStackNavigator({
         Swipe: SwipeScreen,
+        Desc: DescriptionScreen,
     },
     config
 );

@@ -5,18 +5,19 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Image,
   ScrollView
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import KeyboardSpacer from "react-native-keyboard-spacer";
 
-class SignUpScreen extends React.Component {
+class SignUpScreenName extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: ""
+      name: "",
+      username: ""
     };
   }
 
@@ -24,69 +25,78 @@ class SignUpScreen extends React.Component {
     title: "Tell us about yourself!"
   };
 
-  validEmail() {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(this.state.email.toLowerCase());
+  validName() {
+    return this.state.name.length > 0;
   }
 
-  validPassword() {
-    return this.state.password.length >= 8;
+  validUsername() {
+    return this.state.username.length > 0;
   }
 
   render() {
     return (
       <View style={{ flex: 1 }}>
         <ScrollView style={styles.container}>
+          <View style={styles.logoContainer}>
+            <TouchableOpacity>
+              <Image
+                style={styles.logo}
+                source={require("../assets/images/ProfilePicture.png")}
+              />
+            </TouchableOpacity>
+            <Text>Upload a profile picture!</Text>
+          </View>
+
           <View>
-            {this.validEmail() ? (
+            {this.validName() ? (
               <Icon
                 name={"ios-checkmark-circle"}
                 size={28}
                 style={styles.inputIcon}
               />
             ) : null}
-            <Text style={styles.label}>Email</Text>
+
+            <Text style={styles.label}>Full Name</Text>
             <TextInput
-              placeholder="Enter your email"
+              placeholder="Tell us your name :)"
               placeholderTextColor="gray"
               style={styles.input}
-              onChangeText={email => this.setState({ email })}
-              keyboardType="email-address"
-              textContentType="emailAddress"
-              autoCorrect={false}
-              autoCapitalize="none"
+              onChangeText={name => this.setState({ name })}
+              textContentType="name"
+              autoCapitalize="words"
             />
           </View>
 
           <View>
-            {this.validPassword() ? (
+            {this.validUsername() ? (
               <Icon
                 name={"ios-checkmark-circle"}
                 size={28}
                 style={styles.inputIcon}
               />
             ) : null}
-            <Text style={styles.label}>Password</Text>
+
+            <Text style={styles.label}>Username</Text>
             <TextInput
-              placeholder="Enter your password"
+              placeholder="Pick a username!"
               placeholderTextColor="gray"
               style={styles.input}
-              onChangeText={password => this.setState({ password })}
-              secureTextEntry={true}
-              textContentType="password"
+              onChangeText={username => this.setState({ username })}
+              textContentType="username"
               autoCorrect={false}
               autoCapitalize="none"
             />
           </View>
 
           <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => this.props.navigation.navigate("DogInfo")}
             style={
-              !this.validEmail() || !this.validPassword()
+              !this.validName() || !this.validUsername()
                 ? styles.buttonContainerDisabled
                 : styles.buttonContainer
             }
-            onPress={() => this.props.navigation.navigate("UserInfoName")}
-            disabled={!this.validEmail() || !this.validPassword()}
+            disabled={!this.validName() || !this.validUsername()}
           >
             <Text style={styles.buttonText}>NEXT</Text>
           </TouchableOpacity>
@@ -97,12 +107,12 @@ class SignUpScreen extends React.Component {
   }
 }
 
-export default SignUpScreen;
+export default SignUpScreenName;
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    paddingTop: 40
+    paddingHorizontal: 30
   },
   input: {
     height: 55,
@@ -149,5 +159,15 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     color: "#FFFFFF"
+  },
+  logoContainer: {
+    alignItems: "center",
+    flexGrow: 1,
+    justifyContent: "center",
+    paddingVertical: 30
+  },
+  logo: {
+    width: 100,
+    height: 100
   }
 });

@@ -4,36 +4,19 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 import MessageListItem from "../components/MessageListItem";
 
-export default class SettingsScreen extends Component {
+import { connect } from "react-redux";
+import { sendMessage } from "../actions/actions";
+
+export class MessagesScreen extends Component {
   constructor(props) {
     super(props);
+  }
 
-    this.state = {
-      messengers: [
-        {
-          largeAvatar: "http://placekitten.com/256/256",
-          smallAvatar: "http://placekitten.com/128/128",
-          name: "Mrs. Meowmers",
-          date: new Date(2019, 6, 6, 9, 39, 30),
-          message: "Go watch the new spiderman movie\nTom Holland is 😻"
-        },
-        {
-          largeAvatar: "http://placekitten.com/257/257",
-          smallAvatar: "http://placekitten.com/129/129",
-          name: "Mr. Meowmers",
-          date: new Date(2019, 6, 6, 15, 43, 23),
-          message:
-            "Do you want to head to the park meow? I'm not kitten this time 😺"
-        },
-        {
-          largeAvatar: "http://placekitten.com/258/258",
-          smallAvatar: "http://placekitten.com/130/130",
-          name: "Shiba Inu",
-          date: new Date(2019, 6, 6, 18, 26, 51),
-          message: "Meet me at the park in an hour\nI'll bring the treats"
-        }
-      ]
-    };
+  orderedMessages() {
+    let messages = this.props.chat;
+    return Object.keys(messages)
+      .map(key => messages[key][0])
+      .sort((a, b) => a.createdAt < b.createdAt);
   }
 
   render() {
@@ -41,24 +24,26 @@ export default class SettingsScreen extends Component {
       <Container>
         <Content>
           <List>
-            {this.state.messengers.map((messenger, index) => (
+            {this.orderedMessages().map((messenger, index) => (
               <TouchableOpacity
                 key={`${index}${JSON.stringify(messenger)}`}
                 onPress={() =>
                   this.props.navigation.navigate("Chat", {
-                    name: messenger.name,
-                    avatar: messenger.largeAvatar,
-                    lastMessage: messenger.message,
-                    lastDate: messenger.date
+                    username: messenger.user.username,
+                    name: messenger.user.name,
+                    avatar: messenger.user.avatar,
+                    avatar2: messenger.user.avatar2,
+                    lastMessage: messenger.text,
+                    lastDate: messenger.createdAt
                   })
                 }
               >
                 <MessageListItem
-                  largeAvatar={messenger.largeAvatar}
-                  smallAvatar={messenger.smallAvatar}
-                  name={messenger.name}
-                  date={messenger.date}
-                  message={messenger.message}
+                  largeAvatar={messenger.user.avatar}
+                  smallAvatar={messenger.user.avatar2}
+                  name={messenger.user.name}
+                  date={messenger.createdAt}
+                  message={messenger.text}
                 />
               </TouchableOpacity>
             ))}
@@ -69,6 +54,15 @@ export default class SettingsScreen extends Component {
   }
 }
 
-SettingsScreen.navigationOptions = {
+MessagesScreen.navigationOptions = {
   title: "Messages"
 };
+
+const mapStateToProps = state => ({
+  chat: state.chat
+});
+
+export default connect(
+  mapStateToProps,
+  { sendMessage }
+)(MessagesScreen);

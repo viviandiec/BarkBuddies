@@ -21,16 +21,18 @@ export default function MessageListItem(props) {
           <Text>{props.name}</Text>
           <Text note>{convertToTimeString(props.date)}</Text>
         </View>
-        <Text note>{props.message}</Text>
+        <Text note numberOfLines={2}>
+          {props.message}
+        </Text>
       </Body>
     </ListItem>
   );
 }
 
 function convertToTimeString(date) {
-  return `${date.getHours() % 12}:${date.getMinutes()} ${
-    date.getHours() > 12 ? "PM" : "AM"
-  }`;
+  return `${date.getHours() % 12 === 0 ? "12" : date.getHours() % 12}:${
+    date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+  } ${date.getHours() >= 12 ? "PM" : "AM"}`;
 }
 
 const largeAvatar = {

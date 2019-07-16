@@ -14,13 +14,7 @@ export default function ProfileScreen(props) {
   return (
     <View style={{ paddingTop: 120 }}>
       <View style={{ alignItems: "center" }}>
-        <View
-          style={{
-            alignItems: "center",
-            width: 175,
-            height: 150
-          }}
-        >
+        <View>
           <Image
             style={{ width: 128, height: 128, borderRadius: 64 }}
             source={{ uri: "http://placekitten.com/256/256" }}
@@ -31,8 +25,8 @@ export default function ProfileScreen(props) {
               height: 64,
               borderRadius: 32,
               position: "absolute",
-              left: 0,
-              bottom: 0,
+              left: -24,
+              bottom: -16,
               borderWidth: 6,
               borderColor: "white"
             }}
@@ -59,7 +53,10 @@ export default function ProfileScreen(props) {
           </View>
           <View style={{ width: 90 }} />
           <View style={{ alignItems: "center" }}>
-            <TouchableOpacity style={styles.iconContainer}>
+            <TouchableOpacity
+              style={styles.iconContainer}
+              onPress={() => props.navigation.navigate("EditDogProfile")}
+            >
               <Ionicons
                 name={Platform.OS === "ios" ? "ios-paw" : "md-paw"}
                 color="white"

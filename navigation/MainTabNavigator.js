@@ -3,11 +3,13 @@ import { Platform, Image, StyleSheet } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import SwipeScreen from '../screens/SwipeScreen';
 import MessagesScreen from '../screens/MessagesScreen';
 import ChatScreen from '../screens/ChatScreen';
 import DescriptionScreen from '../screens/DescriptionScreen';
+import EditProfileScreen from '../screens/EditProfileScreen';
+import EditDogProfileScreen from '../screens/EditDogProfileScreen';
 
 const config = Platform.select({
     web: { headerMode: 'screen' },
@@ -15,18 +17,19 @@ const config = Platform.select({
 });
 
 const HomeStack = createStackNavigator({
-        Home: HomeScreen,
+        Profile: ProfileScreen,
+        EditProfile: EditProfileScreen,
+        EditDogProfile: EditDogProfileScreen,
     },
     config
 );
 
 HomeStack.navigationOptions = {
-    tabBarLabel: 'Home',
     tabBarIcon: ({ focused }) => ( <
         TabBarIcon focused = { focused }
         name = {
             Platform.OS === 'ios' ?
-            `ios-home${focused ? '' : '-outline'}` : 'md-home'
+            "ios-person" : "md-person"
         }
         />
     ),
@@ -42,13 +45,12 @@ const SwipeStack = createStackNavigator({
 );
 
 SwipeStack.navigationOptions = {
-  tabBarLabel: 'Swipe',
   tabBarIcon: ({ focused }) => (
     <Image
       source={require('../assets/images/icon.png')}
       style={{
         opacity: focused ? 1 : 0.2,
-        transform: [{ scaleX: 0.1 }, { scaleY: 0.1 }]
+        transform: [{ scaleX: 0.15 }, { scaleY: 0.15 }]
       }}
     />
   )
@@ -64,7 +66,6 @@ const MessagesStack = createStackNavigator({
 );
 
 MessagesStack.navigationOptions = {
-    tabBarLabel: 'Messages',
     tabBarIcon: ({ focused }) => ( <
         TabBarIcon focused = { focused }
         name = { Platform.OS === 'ios' ? 'ios-chatboxes' : 'md-chatboxes' }
@@ -80,7 +81,10 @@ const tabNavigator = createBottomTabNavigator({
     MessagesStack
   },
   {
-    initialRouteName: "SwipeStack"
+    initialRouteName: "SwipeStack",
+    tabBarOptions: {
+      showLabel: false
+    }
   }
 );
 

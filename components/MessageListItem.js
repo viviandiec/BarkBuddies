@@ -30,9 +30,29 @@ export default function MessageListItem(props) {
 }
 
 function convertToTimeString(date) {
-  return `${date.getHours() % 12 === 0 ? "12" : date.getHours() % 12}:${
-    date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
-  } ${date.getHours() >= 12 ? "PM" : "AM"}`;
+  const now = new Date();
+  if (now - date < 24 * 60 * 60 * 1000) {
+    return `${date.getHours() % 12 === 0 ? "12" : date.getHours() % 12}:${
+      date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+    } ${date.getHours() >= 12 ? "PM" : "AM"}`;
+  } else {
+    switch (date.getDay()) {
+      case 0:
+        return "Sun";
+      case 1:
+        return "Mon";
+      case 2:
+        return "Tue";
+      case 3:
+        return "Wed";
+      case 4:
+        return "Thu";
+      case 5:
+        return "Fri";
+      case 6:
+        return "Sat";
+    }
+  }
 }
 
 const largeAvatar = {

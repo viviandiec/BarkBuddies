@@ -25,7 +25,7 @@ export default function ProfileScreen(props) {
               height: 64,
               borderRadius: 32,
               position: "absolute",
-              left: -24,
+              right: -24,
               bottom: -16,
               borderWidth: 6,
               borderColor: "white"

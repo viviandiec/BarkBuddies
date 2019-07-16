@@ -12,8 +12,8 @@ import PictureScreen from '../screens/PictureScreen';
 const SignUpStack = createStackNavigator({
   SignIn: SignInScreen,
   UserInfo: SignUpScreen,
-  UserInfoName: SignUpScreenName, 
-  DogInfo: DogInfoScreen, 
+  UserInfoName: SignUpScreenName,
+  DogInfo: DogInfoScreen,
   Images: PictureScreen
 });
 

@@ -20,7 +20,6 @@ class SwipeScreen extends React.Component {
   }
 
   renderCard = (card, cardIndex) => {
-    console.log(cardIndex);
     if (cardIndex != undefined) {
       return <Card description={false} index={cardIndex} />;
     }
@@ -30,7 +29,11 @@ class SwipeScreen extends React.Component {
   onSwiped = type => {
     switch (type) {
       case 'general':
-        return this.setState({ modalVisible: false });
+        console.log(this.state.currentIndex);
+        return this.setState({
+          modalVisible: false,
+          currentIndex: this.state.currentIndex+1
+        });
       case 'right':
         return this.setState({ modalVisible: true });
       default:
@@ -60,8 +63,11 @@ class SwipeScreen extends React.Component {
           onSwipedRight={() => this.onSwiped('right')}
           cards={cards}
           cardIndex={0}
-          infinite={true}
-          onTapCard={() => this.props.navigation.navigate('Desc')}
+          onTapCard={() =>
+            this.props.navigation.navigate('Desc', {
+              index: this.state.currentIndex
+            })
+          }
           renderCard={this.renderCard}
           onSwipedAll={this.onSwipedAllCards}
           verticalSwipe={false}

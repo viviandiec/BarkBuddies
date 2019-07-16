@@ -6,14 +6,14 @@ export const cards = [
       'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
   },
   {
-    doggoName: 'Noodles',
-    ownerName: 'Tommy',
+    doggoName: 'Lettuce',
+    ownerName: 'Vivian',
     description:
       'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
   },
   {
-    doggoName: 'Lettuce',
-    ownerName: 'Vivian',
+    doggoName: 'Noodles',
+    ownerName: 'Tommy',
     description:
       'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
   },
@@ -55,36 +55,34 @@ export const cards = [
   },
   {
     doggoName: 'Avocado',
-    ownerName: 'Dustin',
+    ownerName: 'Max',
     description:
       'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
   }
 ];
 
 export const doggoImages = {
-  0: require('../assets/images/pic_tofu.jpg'),
-  1: require('../assets/images/shiba-inu.jpg'),
-  2: require('../assets/images/dog2.jpg'),
-  3: require('../assets/images/dog4.jpg'),
-  4: require('../assets/images/dog5.jpg'),
-  5: require('../assets/images/dog6.jpg'),
-  6: require('../assets/images/dog7.jpg'),
-  7: require('../assets/images/dog8.jpg'),
-  8: require('../assets/images/dog9.jpg'),
-  9: require('../assets/images/dog10.jpg'),
-  10: require('../assets/images/dog11.jpg')
+  0: require('../assets/images/doggos/pic_tofu.jpg'),
+  1: require('../assets/images/doggos/shiba-inu.jpg'),
+  2: require('../assets/images/doggos/dog2.jpg'),
+  3: require('../assets/images/doggos/dog4.jpg'),
+  4: require('../assets/images/doggos/dog5.jpg'),
+  5: require('../assets/images/doggos/dog6.jpg'),
+  6: require('../assets/images/doggos/dog7.jpg'),
+  7: require('../assets/images/doggos/dog8.jpg'),
+  8: require('../assets/images/doggos/dog9.jpg'),
+  9: require('../assets/images/doggos/dog10.jpg'),
 };
 
 export const userImages = {
-  0: require('../assets/images/megan.jpg'),
-  1: require('../assets/images/pic_tofu.jpg'),
-  2: require('../assets/images/pic_tofu.jpg'),
-  3: require('../assets/images/pic_tofu.jpg'),
-  4: require('../assets/images/pic_tofu.jpg'),
-  5: require('../assets/images/pic_tofu.jpg'),
-  6: require('../assets/images/pic_tofu.jpg'),
-  7: require('../assets/images/pic_tofu.jpg'),
-  8: require('../assets/images/pic_tofu.jpg'),
-  9: require('../assets/images/pic_tofu.jpg'),
-  10: require('../assets/images/pic_tofu.jpg')
+  0: require('../assets/images/users/megan.jpg'),
+  1: require('../assets/images/users/viv.jpeg'),
+  2: require('../assets/images/users/tommy.jpg'),
+  3: require('../assets/images/users/ellen.jpg'),
+  4: require('../assets/images/users/bob.png'),
+  5: require('../assets/images/users/Billy_Hargrove_-_pool_trailer.png'),
+  6: require('../assets/images/users/Will_S3.png'),
+  7: require('../assets/images/users/ssteve.jpg'),
+  8: require('../assets/images/users/lucas.png'),
+  9: require('../assets/images/users/max.jpg'),
 };

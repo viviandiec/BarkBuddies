@@ -4,10 +4,12 @@ import Card from '../components/Card';
 
 class DescriptionScreen extends React.Component {
   render() {
+    cardId = this.props.navigation.getParam('index');
+    console.log(cardId);
     return (
       <ScrollView>
-        <Card description={true} index={0} />
-        <View style={{height: 500}}></View>
+        <Card description={true} index={cardId} />
+        <View style={{ height: 500 }} />
       </ScrollView>
     );
   }

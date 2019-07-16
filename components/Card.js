@@ -11,7 +11,6 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function Card(props) {
   index = props.index;
-  console.log(cards[index].doggoName);
   return (
       <View style={styles.card}>
         <Image

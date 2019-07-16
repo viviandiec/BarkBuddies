@@ -7,41 +7,46 @@ export default function Card(props) {
   index = props.index;
   return (
     <View style={styles.card}>
-      <Image
-        style={this.doggoImageStyle(props.description)}
-        source={this.getImage(index, 'doggo')}
-      />
-      <Image
-        style={this.userImageStyle(props.description)}
-        source={this.getImage(index, '')}
-      />
-      <Text style={styles.name}>{cards[index].doggoName}</Text>
-      <View style={styles.row}>
-        <Text style={styles.user}>{`& ${cards[index].ownerName}`}</Text>
-        <View style={{ flexDirection: 'row', marginRight: 20, marginTop: 5 }}>
+      <View style={{ flex: 1 }}>
+        <Image
+          style={this.doggoImageStyle(props.description)}
+          source={this.getImage(index, 'doggo')}
+        />
+        <Image
+          style={this.userImageStyle(props.description)}
+          source={this.getImage(index, '')}
+        />
+      </View>
+      {props.description ? <View /> : <View style={{ height: 80 }} />}
+      <View style={{ flex: 1, marginHorizontal: 18 }}>
+        <Text style={styles.name}>{cards[index].doggoName}</Text>
+        <View style={styles.row}>
+          <Text style={styles.user}>{`& ${cards[index].ownerName}`}</Text>
+          <View style={{ flexDirection: 'row', marginRight: 30, marginTop: 5 }}>
+            <Ionicons
+              size={20}
+              name={Platform.OS === 'ios' ? 'ios-pin' : 'md-pin'}
+              color={'#494848'}
+            />
+            <Text> Ottawa</Text>
+          </View>
+        </View>
+        <Text style={styles.description}>{cards[index].description}</Text>
+        {!props.description ? (
           <Ionicons
-            size={20}
-            name={Platform.OS === 'ios' ? 'ios-pin' : 'md-pin'}
+            style={styles.infoIcon}
+            size={30}
+            name={
+              Platform.OS === 'ios'
+                ? 'ios-information-circle'
+                : 'md-information-circle'
+            }
             color={'#494848'}
           />
-          <Text> Ottawa</Text>
-        </View>
+        ) : (
+          <View />
+        )}
       </View>
-      <Text style={styles.description}>{cards[index].description}</Text>
-      {!props.description ? (
-        <Ionicons
-          style={styles.infoIcon}
-          size={50}
-          name={
-            Platform.OS === 'ios'
-              ? 'ios-information-circle'
-              : 'md-information-circle'
-          }
-          color={'#494848'}
-        />
-      ) : (
-        <View />
-      )}
     </View>
   );
 }
@@ -55,9 +60,10 @@ getImage = (num, type) => {
 
 doggoImageStyle = function(description) {
   return {
-    width: description ? 400 : 300,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    width: description ? 400 : 320,
     height: description ? 400 : 300,
-    marginTop: description ? 0 : 10,
     alignSelf: 'center'
   };
 };
@@ -67,10 +73,10 @@ userImageStyle = function(description) {
     width: 100,
     height: 100,
     borderRadius: 50,
-    borderColor: '#F6967D',
+    borderColor: '#edfcff',
     borderWidth: 4,
     position: 'absolute',
-    right: 20,
+    right: 10,
     top: description ? 350 : 260
   };
 };
@@ -78,9 +84,8 @@ userImageStyle = function(description) {
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    borderRadius: 4,
-    backgroundColor: 'white',
-    paddingHorizontal: 18
+    borderRadius: 15,
+    backgroundColor: 'white'
   },
   name: {
     fontSize: 45,
@@ -97,7 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   description: {
-    fontSize: 15,
+    fontSize: 16,
     color: '#404040'
   },
   doggoImage: {
@@ -108,7 +113,7 @@ const styles = StyleSheet.create({
   },
   infoIcon: {
     position: 'absolute',
-    right: 20,
-    top: 470
+    right: 5,
+    bottom: 10
   }
 });

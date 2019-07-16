@@ -3,61 +3,111 @@ export const cards = [
     doggoName: 'Tofu',
     ownerName: 'Megan',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'Poodle',
+    size: 'small',
+    more: 'is blind but tries her best'
   },
   {
     doggoName: 'Lettuce',
     ownerName: 'Vivian',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   },
   {
     doggoName: 'Noodles',
     ownerName: 'Tommy',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   },
   {
     doggoName: 'Fish',
     ownerName: 'Ellen',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   },
   {
     doggoName: 'Bean',
     ownerName: 'Bob',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   },
   {
     doggoName: 'Orange',
     ownerName: 'Billy',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   },
   {
     doggoName: 'Dragon',
     ownerName: 'Will',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   },
   {
     doggoName: 'Yoghurt',
     ownerName: 'Steve',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   },
   {
     doggoName: 'Tomato',
     ownerName: 'Lucas',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   },
   {
     doggoName: 'Avocado',
     ownerName: 'Max',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. '
+      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+    age: 2,
+    gender: 'F',
+    breed: 'lol',
+    size: 'small',
+    more: 'lol'
   }
 ];
 
@@ -71,7 +121,7 @@ export const doggoImages = {
   6: require('../assets/images/doggos/dog7.jpg'),
   7: require('../assets/images/doggos/dog8.jpg'),
   8: require('../assets/images/doggos/dog9.jpg'),
-  9: require('../assets/images/doggos/dog10.jpg'),
+  9: require('../assets/images/doggos/dog10.jpg')
 };
 
 export const userImages = {
@@ -84,5 +134,5 @@ export const userImages = {
   6: require('../assets/images/users/Will_S3.png'),
   7: require('../assets/images/users/ssteve.jpg'),
   8: require('../assets/images/users/lucas.png'),
-  9: require('../assets/images/users/max.jpg'),
+  9: require('../assets/images/users/max.jpg')
 };

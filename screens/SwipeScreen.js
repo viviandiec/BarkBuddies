@@ -32,7 +32,8 @@ class SwipeScreen extends React.Component {
         console.log(this.state.currentIndex);
         return this.setState({
           modalVisible: false,
-          currentIndex: this.state.currentIndex+1
+          currentIndex:
+            this.state.currentIndex < 10 ? this.state.currentIndex + 1 : 0
         });
       case 'right':
         return this.setState({ modalVisible: true });
@@ -68,11 +69,15 @@ class SwipeScreen extends React.Component {
               index: this.state.currentIndex
             })
           }
+          cardVerticalMargin={40}
+          stackSeparation={0}
+          marginBottom={25}
+          backgroundColor={'#b5d4d8'}
           renderCard={this.renderCard}
           onSwipedAll={this.onSwipedAllCards}
           verticalSwipe={false}
-          stackSize={11}
-          backgroundColor={'#f7c5b8'}
+          stackSize={3}
+          infinite={true}
           overlayLabels={{
             left: {
               title: 'NOPE',
@@ -122,13 +127,13 @@ class SwipeScreen extends React.Component {
 }
 
 SwipeScreen.navigationOptions = {
-  title: 'Swipe'
+  header: null
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f7c5b8'
+    backgroundColor: '#b5d4d8'
   },
   done: {
     textAlign: 'center',

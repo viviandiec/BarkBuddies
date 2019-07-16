@@ -74,7 +74,7 @@ export class ChatScreen extends Component {
           }}
           renderBubble={this.renderBubble}
         />
-        {Platform.OS === "android" ? <KeyboardSpacer topSpacing={-42} /> : <KeyboardSpacer topSpacing={-42}/>}
+        {Platform.OS === "android" ? <KeyboardSpacer topSpacing={-42} /> : <KeyboardSpacer topSpacing={-82}/>}
       </View>
     );
   }

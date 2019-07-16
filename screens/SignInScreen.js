@@ -9,7 +9,6 @@ import {
   Image,
   ScrollView
 } from "react-native";
-import { Item, Label } from "native-base";
 import Icon from "react-native-vector-icons/Ionicons";
 import KeyboardSpacer from "react-native-keyboard-spacer";
 

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Platform,
   StyleSheet,
   View,
   Text,
@@ -30,7 +31,7 @@ class SignUpScreenName extends React.Component {
   }
 
   validUsername() {
-    return this.state.username.length > 0;
+    return this.state.username.length > 0 && !this.state.username.includes(" ");
   }
 
   render() {
@@ -43,8 +44,26 @@ class SignUpScreenName extends React.Component {
                 style={styles.logo}
                 source={require("../assets/images/ProfilePicture.png")}
               />
+              <View
+                style={{
+                  alignItems: "center",
+                  width: 42,
+                  height: 42,
+                  position: "absolute",
+                  right: -8,
+                  bottom: -8,
+                  backgroundColor: "lightgray",
+                  borderRadius: 26
+                }}
+              >
+                <Icon
+                  name={Platform.OS === "ios" ? "ios-camera" : "md-camera"}
+                  size={24}
+                  color="white"
+                  style={{ paddingTop: 8 }}
+                />
+              </View>
             </TouchableOpacity>
-            <Text>Upload a profile picture!</Text>
           </View>
 
           <View>
@@ -124,9 +143,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff"
   },
-  label:{
-    color: 'black',
-    paddingHorizontal:10,
+  label: {
+    color: "black",
+    paddingHorizontal: 10,
     paddingBottom: 5
   },
   inputIcon: {

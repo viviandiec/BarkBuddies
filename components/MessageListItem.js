@@ -59,7 +59,7 @@ const largeAvatar = {
   height: 45,
   width: 45,
   position: "absolute",
-  right: 0,
+  left: 0,
   top: 10,
   borderRadius: 50
 };
@@ -68,7 +68,7 @@ const smallAvatar = {
   height: 36,
   width: 36,
   position: "absolute",
-  left: 0,
+  right: 0,
   bottom: 0,
   borderRadius: 50,
   borderWidth: 4,

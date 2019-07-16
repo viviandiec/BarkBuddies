@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { Platform, StyleSheet, View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
 import KeyboardSpacer from "react-native-keyboard-spacer";
 
@@ -39,10 +39,28 @@ class DogInfoScreen extends React.Component {
                     <TouchableOpacity>
                         <Image
                             style={styles.logo}
-                            source={require('../assets/images/ProfilePicture.png')}
+                            source={require("../assets/images/DogProfilePicture.png")}
                         />
+                        <View
+                            style={{
+                            alignItems: "center",
+                            width: 42,
+                            height: 42,
+                            position: "absolute",
+                            right: -16,
+                            bottom: -12,
+                            backgroundColor: "lightgray",
+                            borderRadius: 26
+                            }}
+                        >
+                            <Icon
+                            name={Platform.OS === "ios" ? "ios-camera" : "md-camera"}
+                            size={24}
+                            color="white"
+                            style={{ paddingTop: 8 }}
+                            />
+                        </View>
                     </TouchableOpacity>
-                    <Text>Upload a picture of your dog!</Text>
                 </View>
 
                 <View>

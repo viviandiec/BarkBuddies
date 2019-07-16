@@ -20,7 +20,7 @@ export default function HomeScreen(props) {
 
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => props.navigation.navigate("UserInfo")}
+          onPress={() => props.navigation.navigate("EditProfile")}
         >
           <Text style={styles.buttonText}>Edit your profile!</Text>
         </TouchableOpacity>

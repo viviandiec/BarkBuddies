@@ -25,7 +25,7 @@ export const cards = [
     doggoName: 'Noodles',
     ownerName: 'Tommy',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+      'Hello! Or should I say Woof! I am fun guy who loves to lie in the sun and long walk on the beach. ',
     age: 2,
     gender: 'F',
     breed: 'lol',
@@ -127,11 +127,11 @@ export const doggoImages = {
 export const userImages = {
   0: require('../assets/images/users/megan.jpg'),
   1: require('../assets/images/users/viv.jpeg'),
-  2: require('../assets/images/users/tommy.jpg'),
+  2: require('../assets/images/users/Will_S3.png'),
   3: require('../assets/images/users/ellen.jpg'),
   4: require('../assets/images/users/bob.png'),
   5: require('../assets/images/users/Billy_Hargrove_-_pool_trailer.png'),
-  6: require('../assets/images/users/Will_S3.png'),
+  6: require('../assets/images/users/tommy.jpg'),
   7: require('../assets/images/users/ssteve.jpg'),
   8: require('../assets/images/users/lucas.png'),
   9: require('../assets/images/users/max.jpg')

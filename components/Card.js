@@ -7,7 +7,7 @@ export default function Card(props) {
   index = props.index;
   return (
     <View style={styles.card}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 3 }}>
         <Image
           style={this.doggoImageStyle(props.description)}
           source={this.getImage(index, 'doggo')}
@@ -18,11 +18,11 @@ export default function Card(props) {
         />
       </View>
       {props.description ? <View /> : <View style={{ height: 80 }} />}
-      <View style={{ flex: 1, marginHorizontal: 18 }}>
+      <View style={{ flex: 2, marginHorizontal: 18 }}>
         <Text style={styles.name}>{cards[index].doggoName}</Text>
         <View style={styles.row}>
           <Text style={styles.user}>{`& ${cards[index].ownerName}`}</Text>
-          <View style={{ flexDirection: 'row', marginRight: 30, marginTop: 5 }}>
+          <View style={{ flexDirection: 'row', marginRight: 22, marginTop: 5 }}>
             <Ionicons
               size={20}
               name={Platform.OS === 'ios' ? 'ios-pin' : 'md-pin'}
@@ -63,7 +63,7 @@ doggoImageStyle = function(description) {
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     width: description ? 400 : 320,
-    height: description ? 400 : 300,
+    height: description ? 400 : 350,
     alignSelf: 'center'
   };
 };
@@ -74,10 +74,10 @@ userImageStyle = function(description) {
     height: 100,
     borderRadius: 50,
     borderColor: '#edfcff',
-    borderWidth: 4,
+    borderWidth: 5,
     position: 'absolute',
-    right: 10,
-    top: description ? 350 : 260
+    right: 15,
+    top: description ? 350 : 305
   };
 };
 

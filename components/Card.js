@@ -1,43 +1,48 @@
 import React from 'react';
 import { doggoImages, userImages, cards } from '../constants/Data';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Platform,
-} from 'react-native';
+import { StyleSheet, View, Text, Image, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Card(props) {
   index = props.index;
   return (
-      <View style={styles.card}>
-        <Image
-          style={this.doggoImageStyle(props.description)}
-          source={this.getImage(index, 'doggo')}
-        />
-        <Image
-          style={this.userImageStyle(props.description)}
-          source={this.getImage(index, '')}
-        />
-        <Text style={styles.name}>{cards[index].doggoName}</Text>
-        <Text style={styles.description}>{cards[index].description}</Text>
-        {!props.description ? (
+    <View style={styles.card}>
+      <Image
+        style={this.doggoImageStyle(props.description)}
+        source={this.getImage(index, 'doggo')}
+      />
+      <Image
+        style={this.userImageStyle(props.description)}
+        source={this.getImage(index, '')}
+      />
+      <Text style={styles.name}>{cards[index].doggoName}</Text>
+      <View style={styles.row}>
+        <Text style={styles.user}>{`& ${cards[index].ownerName}`}</Text>
+        <View style={{ flexDirection: 'row', marginRight: 20, marginTop: 5 }}>
           <Ionicons
-            style={styles.infoIcon}
-            size={50}
-            name={
-              Platform.OS === 'ios'
-                ? 'ios-information-circle'
-                : 'md-information-circle'
-            }
+            size={20}
+            name={Platform.OS === 'ios' ? 'ios-pin' : 'md-pin'}
             color={'#494848'}
           />
-        ) : (
-          <View />
-        )}
+          <Text> Ottawa</Text>
+        </View>
       </View>
+      <Text style={styles.description}>{cards[index].description}</Text>
+      {!props.description ? (
+        <Ionicons
+          style={styles.infoIcon}
+          size={50}
+          name={
+            Platform.OS === 'ios'
+              ? 'ios-information-circle'
+              : 'md-information-circle'
+          }
+          color={'#494848'}
+        />
+      ) : (
+        <View />
+      )}
+    </View>
   );
 }
 
@@ -74,15 +79,24 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     borderRadius: 4,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    paddingHorizontal: 18
   },
   name: {
-    marginHorizontal: 12,
     fontSize: 45,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    marginBottom: -5
+  },
+  user: {
+    marginTop: -5,
+    fontSize: 25
+  },
+  row: {
+    flexDirection: 'row',
+    marginBottom: 10,
+    justifyContent: 'space-between'
   },
   description: {
-    marginHorizontal: 18,
     fontSize: 15,
     color: '#404040'
   },

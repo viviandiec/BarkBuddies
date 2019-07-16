@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Button, ScrollView } from 'react-native';
 import Card from '../components/Card';
+import cards from '../constants/Data';
 
 class DescriptionScreen extends React.Component {
   render() {
@@ -14,5 +15,9 @@ class DescriptionScreen extends React.Component {
     );
   }
 }
+
+DescriptionScreen.navigationOptions = {
+  title: "Profile",
+};
 
 export default DescriptionScreen;

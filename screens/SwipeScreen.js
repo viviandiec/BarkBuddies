@@ -120,7 +120,11 @@ class SwipeScreen extends React.Component {
           animateCardOpacity
           swipeBackCard
         />
-        {this.state.modalVisible ? <StyledModal visible={true} /> : <View />}
+        {this.state.modalVisible ? (
+          <StyledModal visible={true} index={this.state.currentIndex} />
+        ) : (
+          <View />
+        )}
       </View>
     );
   }

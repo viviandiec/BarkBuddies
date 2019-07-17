@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  Modal,
-  TouchableHighlight
-} from 'react-native';
+import { Image, StyleSheet, View, Text, Button, Modal } from 'react-native';
+import { cards, doggoImages } from '../constants/Data';
 
 class StyledModal extends React.Component {
   constructor(props) {
@@ -29,12 +22,19 @@ class StyledModal extends React.Component {
       >
         <View style={styles.modal}>
           <View style={styles.inside}>
-            <Text>You matched!</Text>
-            <View style={{ height: 30 }} />
+            <Text style={{ color: '#FFF', fontSize: 20 }}>
+              You matched with {cards[this.props.index - 1].doggoName}!
+            </Text>
+            <View style={{ flexDirection: 'row' }}>
+              <Image style={styles.img} source={getPic(this.props.index - 1)} />
+              <Image style={styles.img} source={getPic(90)} />
+            </View>
+            <Text style={{ color: '#FFF', fontSize: 16, textAlign: 'center' }}>
+              Go to the chat page to start talking!
+            </Text>
             <Button
-              style={styles.button}
-              title="Close"
-              color="#F6967D"
+              title="     Close     "
+              color="#b5d4d8"
               onPress={() => {
                 this.setState({ modalVisible: false });
               }}
@@ -46,24 +46,37 @@ class StyledModal extends React.Component {
   }
 }
 
+getPic = num => {
+  if (num < 12) {
+    return doggoImages[num];
+  }
+  return doggoImages[0];
+  //lolol TODO
+};
+
 const styles = StyleSheet.create({
   modal: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    backgroundColor: 'rgba(0, 0, 0, 0.8)'
   },
   inside: {
-    height: 200,
     width: 300,
-    backgroundColor: 'white',
-    borderColor: '#f7c5b8',
+    height: 300,
     borderRadius: 5,
-    borderWidth: 2,
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center'
+  },
+  img: {
+    width: 90,
+    height: 90,
+    borderRadius: 50,
+    borderColor: '#edfcff',
+    borderWidth: 3,
+    marginHorizontal: 10
   }
 });
 

@@ -16,11 +16,21 @@ class DogInfoScreen extends React.Component {
   constructor(props) {
     super(props);
 
+    this.clickHandler = this.clickHandler.bind(this)
+
     this.state = {
       name: '',
       age: '',
-      breed: ''
+      breed: '',
+      beenClicked: false
     };
+  }
+
+  clickHandler() {
+    this.setState({beenClicked: true})
+
+    if (this.validName() && this.validAge() && this.validBreed())
+      this.props.navigation.navigate('App')
   }
 
   validName() {
@@ -72,7 +82,7 @@ class DogInfoScreen extends React.Component {
             </TouchableOpacity>
           </View>
 
-          <View>
+          <View style={styles.textInput}>
             {this.validName() ? (
               <Icon
                 name={'ios-checkmark-circle'}
@@ -90,9 +100,10 @@ class DogInfoScreen extends React.Component {
               textContentType="name"
               autoCapitalize="words"
             />
+            {(this.state.beenClicked && !this.validName()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Name is mandatory</Text> : null}
           </View>
 
-          <View>
+          <View style={styles.textInput}>
             {this.validAge() ? (
               <Icon
                 name={'ios-checkmark-circle'}
@@ -109,9 +120,10 @@ class DogInfoScreen extends React.Component {
               onChangeText={age => this.setState({ age })}
               keyboardType="numeric"
             />
+            {(this.state.beenClicked && !this.validAge()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Age must be a number</Text> : null}
           </View>
 
-          <View>
+          <View style={styles.textInput}>
             {this.validBreed() ? (
               <Icon
                 name={'ios-checkmark-circle'}
@@ -127,18 +139,12 @@ class DogInfoScreen extends React.Component {
               style={styles.input}
               onChangeText={breed => this.setState({ breed })}
             />
+            {(this.state.beenClicked && !this.validBreed()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Breed is mandatory</Text> : null}
           </View>
 
           <TouchableOpacity
-            style={
-              !this.validName() || !this.validAge() || !this.validBreed()
-                ? styles.buttonContainerDisabled
-                : styles.buttonContainer
-            }
-            onPress={() => this.props.navigation.navigate('App')}
-            disabled={
-              !this.validName() || !this.validAge() || !this.validBreed()
-            }
+            style={styles.buttonContainer}
+            onPress={this.clickHandler} 
           >
             <Text style={styles.buttonText}>FINISH PROFILE</Text>
           </TouchableOpacity>
@@ -156,10 +162,12 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingHorizontal: 30
   },
+  textInput: {
+    marginBottom: 20
+  },
   input: {
     height: 55,
     backgroundColor: '#eee',
-    marginBottom: 20,
     color: '#000',
     paddingHorizontal: 10,
     borderRadius: 10,

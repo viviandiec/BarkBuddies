@@ -14,15 +14,25 @@ class SignUpScreen extends React.Component {
   constructor(props) {
     super(props);
 
+    this.clickHandler = this.clickHandler.bind(this)
+
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      beenClicked: false
     };
   }
 
   static navigationOptions = {
     title: 'Tell us about yourself!'
   };
+
+  clickHandler() {
+    this.setState({beenClicked: true})
+
+    if (this.validEmail() && this.validPassword())
+      this.props.navigation.navigate('UserInfoName')
+  }
 
   validEmail() {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -37,7 +47,7 @@ class SignUpScreen extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <ScrollView style={styles.container}>
-          <View>
+          <View style={styles.textInput}>
             {this.validEmail() ? (
               <Icon
                 name={'ios-checkmark-circle'}
@@ -56,9 +66,10 @@ class SignUpScreen extends React.Component {
               autoCorrect={false}
               autoCapitalize="none"
             />
+            {(this.state.beenClicked && !this.validEmail()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Invalid email address</Text> : null}
           </View>
 
-          <View>
+          <View style={styles.textInput}>
             {this.validPassword() ? (
               <Icon
                 name={'ios-checkmark-circle'}
@@ -77,16 +88,11 @@ class SignUpScreen extends React.Component {
               autoCorrect={false}
               autoCapitalize="none"
             />
+            {(this.state.beenClicked && !this.validPassword()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Password must be longer than 8 characters</Text> : null}
           </View>
-
           <TouchableOpacity
-            style={
-              !this.validEmail() || !this.validPassword()
-                ? styles.buttonContainerDisabled
-                : styles.buttonContainer
-            }
-            onPress={() => this.props.navigation.navigate('UserInfoName')}
-            disabled={!this.validEmail() || !this.validPassword()}
+            style={styles.buttonContainer}
+            onPress={this.clickHandler} 
           >
             <Text style={styles.buttonText}>NEXT</Text>
           </TouchableOpacity>
@@ -104,10 +110,12 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingTop: 40
   },
+  textInput: {
+    marginBottom: 20
+  },
   input: {
     height: 55,
     backgroundColor: '#eee',
-    marginBottom: 20,
     color: '#000',
     paddingHorizontal: 10,
     borderRadius: 10,
@@ -135,16 +143,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff'
-  },
-  buttonContainerDisabled: {
-    marginTop: 10,
-    paddingTop: 15,
-    paddingBottom: 15,
-    backgroundColor: '#4db8c7',
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
-    opacity: 0.5
   },
   buttonText: {
     textAlign: 'center',

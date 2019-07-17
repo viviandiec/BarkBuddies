@@ -16,9 +16,29 @@ class SignInScreen extends React.Component {
   constructor(props) {
     super(props);
 
+    this.clickHandler = this.clickHandler.bind(this)
+
     this.state = {
-      hidePassword: true
+      username:'',
+      password: '',
+      hidePassword: true,
+      beenClicked: false
     };
+  }
+
+  clickHandler() {
+    this.setState({beenClicked: true})
+
+    if (this.validUsername() && this.validPassword())
+      this.props.navigation.navigate('App')
+  }
+
+  validUsername() {
+    return this.state.username.length > 0 && !this.state.username.includes(' ');
+  }
+
+  validPassword() {
+    return this.state.password.length >= 1;
   }
 
   render() {
@@ -32,20 +52,22 @@ class SignInScreen extends React.Component {
             />
           </View>
 
-          <View>
+          <View style={styles.textInput}>
             <Icon name={'ios-person'} size={28} style={styles.inputIcon} />
 
             <TextInput
               placeholder="Username"
               placeholderTextColor="gray"
               style={styles.input}
+              onChangeText={username => this.setState({ username })}
               textContentType="username"
               autoCorrect={false}
               autoCapitalize="none"
             />
+            {(this.state.beenClicked && !this.validUsername()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Invalid username</Text> : null}
           </View>
 
-          <View>
+          <View style={styles.textInput}>
             <Icon name={'ios-lock'} size={28} style={styles.inputIcon} />
 
             <TextInput
@@ -66,13 +88,15 @@ class SignInScreen extends React.Component {
                 onPress={() =>
                   this.setState({ hidePassword: !this.state.hidePassword })
                 }
+                onChangeText={password => this.setState({ password })}
               />
             </TouchableOpacity>
+            {(this.state.beenClicked && !this.validPassword()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Invalid password</Text> : null}
           </View>
 
           <TouchableOpacity
             style={styles.buttonContainer}
-            onPress={() => this.props.navigation.navigate('App')}
+            onPress={this.clickHandler} 
           >
             <Text style={styles.buttonText}>LOGIN</Text>
           </TouchableOpacity>
@@ -102,9 +126,11 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingHorizontal: 30
   },
+  textInput: {
+    marginBottom: 20
+  },
   input: {
     height: 55,
-    marginBottom: 20,
     backgroundColor: '#eee',
     borderRadius: 10,
     borderWidth: 1,

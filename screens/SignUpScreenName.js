@@ -16,15 +16,25 @@ class SignUpScreenName extends React.Component {
   constructor(props) {
     super(props);
 
+    this.clickHandler = this.clickHandler.bind(this)
+
     this.state = {
       name: '',
-      username: ''
+      username: '',
+      beenClicked: false
     };
   }
 
   static navigationOptions = {
     title: 'Tell us about yourself!'
   };
+
+  clickHandler() {
+    this.setState({beenClicked: true})
+
+    if (this.validName() && this.validUsername())
+      this.props.navigation.navigate('DogInfo')
+  }
 
   validName() {
     return this.state.name.length > 0;
@@ -66,7 +76,7 @@ class SignUpScreenName extends React.Component {
             </TouchableOpacity>
           </View>
 
-          <View>
+          <View style={styles.textInput}>
             {this.validName() ? (
               <Icon
                 name={'ios-checkmark-circle'}
@@ -75,18 +85,19 @@ class SignUpScreenName extends React.Component {
               />
             ) : null}
 
-            <Text style={styles.label}>Full Name</Text>
+            <Text style={styles.label}>First Name</Text>
             <TextInput
-              placeholder="Tell us your name :)"
+              placeholder="Tell us your first name :)"
               placeholderTextColor="gray"
               style={styles.input}
               onChangeText={name => this.setState({ name })}
               textContentType="name"
               autoCapitalize="words"
             />
+            {(this.state.beenClicked && !this.validName()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Name is mandatory</Text> : null}
           </View>
 
-          <View>
+          <View style={styles.textInput}>
             {this.validUsername() ? (
               <Icon
                 name={'ios-checkmark-circle'}
@@ -105,17 +116,12 @@ class SignUpScreenName extends React.Component {
               autoCorrect={false}
               autoCapitalize="none"
             />
+            {(this.state.beenClicked && !this.validUsername()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Username is mandatory and cannot contain spaces</Text> : null}
           </View>
 
           <TouchableOpacity
             style={styles.buttonContainer}
-            onPress={() => this.props.navigation.navigate('DogInfo')}
-            style={
-              !this.validName() || !this.validUsername()
-                ? styles.buttonContainerDisabled
-                : styles.buttonContainer
-            }
-            disabled={!this.validName() || !this.validUsername()}
+            onPress={this.clickHandler} 
           >
             <Text style={styles.buttonText}>NEXT</Text>
           </TouchableOpacity>
@@ -133,10 +139,12 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingHorizontal: 30
   },
+  textInput: {
+    marginBottom: 20
+  },
   input: {
     height: 55,
     backgroundColor: '#eee',
-    marginBottom: 20,
     color: '#000',
     paddingHorizontal: 10,
     borderRadius: 10,

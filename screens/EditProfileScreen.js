@@ -16,7 +16,7 @@ class EditProfile extends React.Component {
     super(props);
 
     this.state = {
-      name: 'John Smith',
+      name: 'John',
       username: 'john_smith99',
       email: 'john_smith@gmail.com'
     };
@@ -62,9 +62,9 @@ class EditProfile extends React.Component {
               />
             ) : null}
 
-            <Text style={styles.label}>Full Name</Text>
+            <Text style={styles.label}>First Name</Text>
             <TextInput
-              defaultValue="John Smith"
+              defaultValue="John"
               style={styles.input}
               onChangeText={name => this.setState({ name })}
               textContentType="name"

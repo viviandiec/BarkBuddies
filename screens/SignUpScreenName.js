@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Platform,
   StyleSheet,
@@ -8,22 +8,22 @@ import {
   TouchableOpacity,
   Image,
   ScrollView
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
-import KeyboardSpacer from "react-native-keyboard-spacer";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 class SignUpScreenName extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: "",
-      username: ""
+      name: '',
+      username: ''
     };
   }
 
   static navigationOptions = {
-    title: "Tell us about yourself!"
+    title: 'Tell us about yourself!'
   };
 
   validName() {
@@ -31,7 +31,7 @@ class SignUpScreenName extends React.Component {
   }
 
   validUsername() {
-    return this.state.username.length > 0 && !this.state.username.includes(" ");
+    return this.state.username.length > 0 && !this.state.username.includes(' ');
   }
 
   render() {
@@ -42,22 +42,22 @@ class SignUpScreenName extends React.Component {
             <TouchableOpacity>
               <Image
                 style={styles.logo}
-                source={require("../assets/images/ProfilePicture.png")}
+                source={require('../assets/images/ProfilePicture.png')}
               />
               <View
                 style={{
-                  alignItems: "center",
+                  alignItems: 'center',
                   width: 42,
                   height: 42,
-                  position: "absolute",
+                  position: 'absolute',
                   right: -8,
                   bottom: -8,
-                  backgroundColor: "lightgray",
+                  backgroundColor: 'lightgray',
                   borderRadius: 26
                 }}
               >
                 <Icon
-                  name={Platform.OS === "ios" ? "ios-camera" : "md-camera"}
+                  name={Platform.OS === 'ios' ? 'ios-camera' : 'md-camera'}
                   size={24}
                   color="white"
                   style={{ paddingTop: 8 }}
@@ -69,7 +69,7 @@ class SignUpScreenName extends React.Component {
           <View>
             {this.validName() ? (
               <Icon
-                name={"ios-checkmark-circle"}
+                name={'ios-checkmark-circle'}
                 size={28}
                 style={styles.inputIcon}
               />
@@ -89,7 +89,7 @@ class SignUpScreenName extends React.Component {
           <View>
             {this.validUsername() ? (
               <Icon
-                name={"ios-checkmark-circle"}
+                name={'ios-checkmark-circle'}
                 size={28}
                 style={styles.inputIcon}
               />
@@ -109,7 +109,7 @@ class SignUpScreenName extends React.Component {
 
           <TouchableOpacity
             style={styles.buttonContainer}
-            onPress={() => this.props.navigation.navigate("DogInfo")}
+            onPress={() => this.props.navigation.navigate('DogInfo')}
             style={
               !this.validName() || !this.validUsername()
                 ? styles.buttonContainerDisabled
@@ -135,54 +135,54 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 55,
-    backgroundColor: "#eee",
+    backgroundColor: '#eee',
     marginBottom: 20,
-    color: "#000",
+    color: '#000',
     paddingHorizontal: 10,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: '#fff'
   },
   label: {
-    color: "black",
+    color: 'black',
     paddingHorizontal: 10,
     paddingBottom: 5
   },
   inputIcon: {
-    position: "absolute",
+    position: 'absolute',
     top: 35,
     right: 25,
     zIndex: 1,
     opacity: 0.5,
-    color: "green"
+    color: 'green'
   },
   buttonContainer: {
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: "#ffcb0c",
+    backgroundColor: '#4db8c7',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: '#fff'
   },
   buttonContainerDisabled: {
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: "#ffcb0c",
+    backgroundColor: '#4db8c7',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff",
+    borderColor: '#fff',
     opacity: 0.5
   },
   buttonText: {
-    textAlign: "center",
-    color: "#FFFFFF"
+    textAlign: 'center',
+    color: '#FFFFFF'
   },
   logoContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingVertical: 30
   },
   logo: {

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   Image,
   ScrollView
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class EditDogProfile extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class EditDogProfile extends React.Component {
   }
 
   static navigationOptions = {
-    title: "Show us your dog!"
+    title: 'Show us your dog!'
   };
 
   render() {
@@ -27,22 +27,22 @@ class EditDogProfile extends React.Component {
             <TouchableOpacity>
               <Image
                 style={styles.logo}
-                source={{ uri: "http://placekitten.com/256/256" }}
+                source={{ uri: 'http://placekitten.com/256/256' }}
               />
               <View
                 style={{
-                  alignItems: "center",
+                  alignItems: 'center',
                   width: 42,
                   height: 42,
-                  position: "absolute",
+                  position: 'absolute',
                   right: -8,
                   bottom: -8,
-                  backgroundColor: "lightgrey",
+                  backgroundColor: 'lightgrey',
                   borderRadius: 26
                 }}
               >
                 <Icon
-                  name={Platform.OS === "ios" ? "ios-camera" : "md-camera"}
+                  name={Platform.OS === 'ios' ? 'ios-camera' : 'md-camera'}
                   size={24}
                   color="white"
                   style={{ paddingTop: 8 }}
@@ -51,7 +51,7 @@ class EditDogProfile extends React.Component {
             </TouchableOpacity>
             <View style={{ paddingTop: 32 }}>
               {Array.from(Array(2)).map((_, row) => (
-                <View key={`row-${row}`} style={{ flexDirection: "row" }}>
+                <View key={`row-${row}`} style={{ flexDirection: 'row' }}>
                   {Array.from(Array(3)).map((_, col) => (
                     <View key={`col-${col}`} style={{ padding: 8 }}>
                       <PhotoBoxAdd />
@@ -61,6 +61,13 @@ class EditDogProfile extends React.Component {
               ))}
             </View>
           </View>
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={() => this.props.navigation.navigate('Profile')}
+            style={styles.buttonContainer}
+          >
+            <Text style={styles.buttonText}>SAVE CHANGES</Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );
@@ -71,10 +78,10 @@ function PhotoBoxAdd() {
   return (
     <TouchableOpacity
       style={{
-        alignItems: "center",
+        alignItems: 'center',
         width: 80,
         height: 80,
-        borderColor: "black",
+        borderColor: 'black',
         borderWidth: 2,
         borderRadius: 8
       }}
@@ -99,14 +106,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30
   },
   logoContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingVertical: 30
   },
   logo: {
     width: 100,
     height: 100,
     borderRadius: 50
+  },
+  buttonContainer: {
+    marginTop: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
+    backgroundColor: '#4db8c7',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff'
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#FFFFFF'
   }
 });

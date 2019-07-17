@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -8,9 +8,9 @@ import {
   Button,
   Image,
   ScrollView
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
-import KeyboardSpacer from "react-native-keyboard-spacer";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 class SignInScreen extends React.Component {
   constructor(props) {
@@ -28,12 +28,12 @@ class SignInScreen extends React.Component {
           <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
-              source={require("../assets/images/iconWithName.jpg")}
+              source={require('../assets/images/iconWithName.jpg')}
             />
           </View>
 
           <View>
-            <Icon name={"ios-person"} size={28} style={styles.inputIcon} />
+            <Icon name={'ios-person'} size={28} style={styles.inputIcon} />
 
             <TextInput
               placeholder="Username"
@@ -46,7 +46,7 @@ class SignInScreen extends React.Component {
           </View>
 
           <View>
-            <Icon name={"ios-lock"} size={28} style={styles.inputIcon} />
+            <Icon name={'ios-lock'} size={28} style={styles.inputIcon} />
 
             <TextInput
               placeholder="Password"
@@ -60,9 +60,9 @@ class SignInScreen extends React.Component {
 
             <TouchableOpacity style={styles.btnEye}>
               <Icon
-                name={"ios-eye"}
+                name={'ios-eye'}
                 size={26}
-                style={this.state.hidePassword ? null : { color: "red" }}
+                style={this.state.hidePassword ? null : { color: '#4db8c7' }}
                 onPress={() =>
                   this.setState({ hidePassword: !this.state.hidePassword })
                 }
@@ -72,15 +72,15 @@ class SignInScreen extends React.Component {
 
           <TouchableOpacity
             style={styles.buttonContainer}
-            onPress={() => this.props.navigation.navigate("App")}
+            onPress={() => this.props.navigation.navigate('App')}
           >
             <Text style={styles.buttonText}>LOGIN</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("UserInfo")}
-            style={{ alignItems: "center", paddingTop: 4 }}
+            onPress={() => this.props.navigation.navigate('UserInfo')}
+            style={{ alignItems: 'center', paddingTop: 4 }}
           >
-            <Text style={{ color: "#2ea3f2", textDecorationLine: "underline" }}>
+            <Text style={{ color: '#2ea3f2', textDecorationLine: 'underline' }}>
               Don't have an account? Sign up
             </Text>
           </TouchableOpacity>
@@ -105,22 +105,22 @@ const styles = StyleSheet.create({
   input: {
     height: 55,
     marginBottom: 20,
-    backgroundColor: "#eee",
+    backgroundColor: '#eee',
     borderRadius: 10,
     borderWidth: 1,
     paddingLeft: 45,
-    borderColor: "#fff",
-    color: "black"
+    borderColor: '#fff',
+    color: 'black'
   },
   inputIcon: {
-    position: "absolute",
+    position: 'absolute',
     top: 10,
     left: 15,
     zIndex: 1,
     opacity: 0.5
   },
   btnEye: {
-    position: "absolute",
+    position: 'absolute',
     top: 14,
     right: 25,
     zIndex: 1,
@@ -130,20 +130,20 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: "#ffcb0c",
+    backgroundColor: '#4db8c7',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: '#fff'
   },
   buttonText: {
-    textAlign: "center",
-    color: "#FFFFFF"
+    textAlign: 'center',
+    color: '#FFFFFF'
   },
   logoContainer: {
     paddingTop: 80,
-    alignItems: "center",
+    alignItems: 'center',
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: 'center'
   },
   logo: {
     width: 200,

@@ -1,11 +1,5 @@
-import React from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function HomeScreen(props) {
   return (
@@ -13,26 +7,26 @@ export default function HomeScreen(props) {
       <View style={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
           <Image
-            source={require("../assets/images/icon.png")}
+            source={require('../assets/images/icon.png')}
             style={styles.welcomeImage}
           />
         </View>
 
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => props.navigation.navigate("EditProfile")}
+          onPress={() => props.navigation.navigate('EditProfile')}
         >
           <Text style={styles.buttonText}>Edit your profile!</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => props.navigation.navigate("DogInfo")}
+          onPress={() => props.navigation.navigate('DogInfo')}
         >
           <Text style={styles.buttonText}>Edit your dog's profile!</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => props.navigation.navigate("Images")}
+          onPress={() => props.navigation.navigate('Images')}
         >
           <Text style={styles.buttonText}>Edit your pictures!</Text>
         </TouchableOpacity>
@@ -53,28 +47,28 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: "#ffcb0c",
+    backgroundColor: '#4db8c7',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: '#fff'
   },
   buttonText: {
-    textAlign: "center",
-    color: "#FFFFFF"
+    textAlign: 'center',
+    color: '#FFFFFF'
   },
   contentContainer: {
     paddingTop: 30
   },
   welcomeContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 10,
     marginBottom: 20
   },
   welcomeImage: {
     width: 100,
     height: 80,
-    resizeMode: "contain",
+    resizeMode: 'contain',
     marginTop: 3,
     marginLeft: -10
-  },
+  }
 });

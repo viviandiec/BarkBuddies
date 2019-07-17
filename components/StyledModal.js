@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View, Text, Button, Modal } from 'react-native';
+import { Image, StyleSheet, View, Text, TouchableOpacity, Modal } from 'react-native';
 import { cards, doggoImages } from '../constants/Data';
 
 class StyledModal extends React.Component {
@@ -32,13 +32,11 @@ class StyledModal extends React.Component {
             <Text style={{ color: '#FFF', fontSize: 16, textAlign: 'center' }}>
               Go to the chat page to start talking!
             </Text>
-            <Button
-              title="     Close     "
-              color="#b5d4d8"
-              onPress={() => {
-                this.setState({ modalVisible: false });
-              }}
-            />
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress={() => this.setState({ modalVisible: false })}>
+              <Text style={styles.buttonText}>CLOSE</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>
@@ -77,6 +75,18 @@ const styles = StyleSheet.create({
     borderColor: '#edfcff',
     borderWidth: 3,
     marginHorizontal: 10
+  },
+  buttonContainer: {
+    marginTop: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
+    backgroundColor: '#4db8c7',
+    borderRadius: 10,
+    width: 200
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#FFFFFF'
   }
 });
 

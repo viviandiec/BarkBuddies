@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -6,22 +6,22 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
-import KeyboardSpacer from "react-native-keyboard-spacer";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 class SignUpScreen extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
   }
 
   static navigationOptions = {
-    title: "Tell us about yourself!"
+    title: 'Tell us about yourself!'
   };
 
   validEmail() {
@@ -40,7 +40,7 @@ class SignUpScreen extends React.Component {
           <View>
             {this.validEmail() ? (
               <Icon
-                name={"ios-checkmark-circle"}
+                name={'ios-checkmark-circle'}
                 size={28}
                 style={styles.inputIcon}
               />
@@ -61,7 +61,7 @@ class SignUpScreen extends React.Component {
           <View>
             {this.validPassword() ? (
               <Icon
-                name={"ios-checkmark-circle"}
+                name={'ios-checkmark-circle'}
                 size={28}
                 style={styles.inputIcon}
               />
@@ -85,7 +85,7 @@ class SignUpScreen extends React.Component {
                 ? styles.buttonContainerDisabled
                 : styles.buttonContainer
             }
-            onPress={() => this.props.navigation.navigate("UserInfoName")}
+            onPress={() => this.props.navigation.navigate('UserInfoName')}
             disabled={!this.validEmail() || !this.validPassword()}
           >
             <Text style={styles.buttonText}>NEXT</Text>
@@ -106,48 +106,48 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 55,
-    backgroundColor: "#eee",
+    backgroundColor: '#eee',
     marginBottom: 20,
-    color: "#000",
+    color: '#000',
     paddingHorizontal: 10,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: '#fff'
   },
-  label:{
+  label: {
     color: 'black',
-    paddingHorizontal:10,
+    paddingHorizontal: 10,
     paddingBottom: 5
   },
   inputIcon: {
-    position: "absolute",
+    position: 'absolute',
     top: 35,
     right: 25,
     zIndex: 1,
     opacity: 0.5,
-    color: "green"
+    color: 'green'
   },
   buttonContainer: {
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: "#ffcb0c",
+    backgroundColor: '#4db8c7',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: '#fff'
   },
   buttonContainerDisabled: {
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: "#ffcb0c",
+    backgroundColor: '#4db8c7',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff",
+    borderColor: '#fff',
     opacity: 0.5
   },
   buttonText: {
-    textAlign: "center",
-    color: "#FFFFFF"
+    textAlign: 'center',
+    color: '#FFFFFF'
   }
 });

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -7,23 +7,23 @@ import {
   TouchableOpacity,
   Image,
   ScrollView
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
-import KeyboardSpacer from "react-native-keyboard-spacer";
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 class EditProfile extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: "John Smith",
-      username: "john_smith99",
-      email: "john_smith@gmail.com"
+      name: 'John Smith',
+      username: 'john_smith99',
+      email: 'john_smith@gmail.com'
     };
   }
 
   static navigationOptions = {
-    title: "Tell us about yourself!"
+    title: 'Tell us about yourself!'
   };
 
   validName() {
@@ -47,7 +47,7 @@ class EditProfile extends React.Component {
             <TouchableOpacity>
               <Image
                 style={styles.logo}
-                source={require("../assets/images/ProfilePicture.png")}
+                source={require('../assets/images/ProfilePicture.png')}
               />
             </TouchableOpacity>
             <Text>Change profile picture!</Text>
@@ -56,7 +56,7 @@ class EditProfile extends React.Component {
           <View>
             {this.validName() ? (
               <Icon
-                name={"ios-checkmark-circle"}
+                name={'ios-checkmark-circle'}
                 size={28}
                 style={styles.inputIcon}
               />
@@ -75,7 +75,7 @@ class EditProfile extends React.Component {
           <View>
             {this.validUsername() ? (
               <Icon
-                name={"ios-checkmark-circle"}
+                name={'ios-checkmark-circle'}
                 size={28}
                 style={styles.inputIcon}
               />
@@ -94,7 +94,7 @@ class EditProfile extends React.Component {
           <View>
             {this.validEmail() ? (
               <Icon
-                name={"ios-checkmark-circle"}
+                name={'ios-checkmark-circle'}
                 size={28}
                 style={styles.inputIcon}
               />
@@ -113,7 +113,7 @@ class EditProfile extends React.Component {
 
           <TouchableOpacity
             style={styles.buttonContainer}
-            onPress={() => this.props.navigation.navigate("Home")}
+            onPress={() => this.props.navigation.navigate('Profile')}
             style={
               !this.validName() || !this.validUsername() || !this.validEmail()
                 ? styles.buttonContainerDisabled
@@ -139,54 +139,54 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 55,
-    backgroundColor: "#eee",
+    backgroundColor: '#eee',
     marginBottom: 20,
-    color: "#000",
+    color: '#000',
     paddingHorizontal: 10,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: '#fff'
   },
-  label:{
+  label: {
     color: 'black',
-    paddingHorizontal:10,
+    paddingHorizontal: 10,
     paddingBottom: 5
   },
   inputIcon: {
-    position: "absolute",
+    position: 'absolute',
     top: 35,
     right: 25,
     zIndex: 1,
     opacity: 0.5,
-    color: "green"
+    color: 'green'
   },
   buttonContainer: {
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: "#ffcb0c",
+    backgroundColor: '#4db8c7',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: '#fff'
   },
   buttonContainerDisabled: {
     marginTop: 10,
     paddingTop: 15,
     paddingBottom: 15,
-    backgroundColor: "#ffcb0c",
+    backgroundColor: '#4db8c7',
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#fff",
+    borderColor: '#fff',
     opacity: 0.5
   },
   buttonText: {
-    textAlign: "center",
-    color: "#FFFFFF"
+    textAlign: 'center',
+    color: '#FFFFFF'
   },
   logoContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingVertical: 30
   },
   logo: {

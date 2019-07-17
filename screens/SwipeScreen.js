@@ -33,7 +33,7 @@ class SwipeScreen extends React.Component {
         return this.setState({
           modalVisible: false,
           currentIndex:
-            this.state.currentIndex < 10 ? this.state.currentIndex + 1 : 0
+            this.state.currentIndex != 9 ? this.state.currentIndex + 1 : 0
         });
       case 'right':
         return this.setState({ modalVisible: true });

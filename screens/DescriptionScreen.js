@@ -4,9 +4,16 @@ import Card from '../components/Card';
 import { cards } from '../constants/Data';
 
 class DescriptionScreen extends React.Component {
+  static navigationOptions({ navigation }) {
+    id = navigation.getParam('index');
+
+    return {
+      title: `${cards[id].doggoName} & ${cards[id].ownerName}`
+    };
+  }
   render() {
     id = this.props.navigation.getParam('index');
-    
+
     return (
       <ScrollView>
         <Card description={true} index={id} />
@@ -26,9 +33,5 @@ class DescriptionScreen extends React.Component {
     );
   }
 }
-
-DescriptionScreen.navigationOptions = {
-  title: 'Profile'
-};
 
 export default DescriptionScreen;

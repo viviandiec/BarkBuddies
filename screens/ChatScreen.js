@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Platform, View } from "react-native";
-import { GiftedChat, Bubble } from "react-native-gifted-chat";
-import KeyboardSpacer from "react-native-keyboard-spacer";
+import React, { Component } from 'react';
+import { Platform, View } from 'react-native';
+import { GiftedChat, Bubble } from 'react-native-gifted-chat';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
-import { connect } from "react-redux";
-import { sendMessage } from "../actions/actions";
+import { connect } from 'react-redux';
+import { sendMessage } from '../actions/actions';
 
 export class ChatScreen extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ export class ChatScreen extends Component {
         {...props}
         wrapperStyle={{
           right: {
-            backgroundColor: "#fec6b9"
+            backgroundColor: '#4db8c7'
           }
         }}
       />
@@ -74,7 +74,11 @@ export class ChatScreen extends Component {
           }}
           renderBubble={this.renderBubble}
         />
-        {Platform.OS === "android" ? <KeyboardSpacer topSpacing={-42} /> : <KeyboardSpacer topSpacing={-82}/>}
+        {Platform.OS === 'android' ? (
+          <KeyboardSpacer topSpacing={-42} />
+        ) : (
+          <KeyboardSpacer topSpacing={-82} />
+        )}
       </View>
     );
   }

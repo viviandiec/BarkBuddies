@@ -3,111 +3,109 @@ export const cards = [
     doggoName: 'Tofu',
     ownerName: 'Megan',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+      'Tofu is a cute but blind poodle who still always tries her best. Vegetarian friends only.',
     age: 2,
     gender: 'F',
     breed: 'Poodle',
     size: 'small',
-    more: 'is blind but tries her best'
+    more: 'Tofu is a small dog who gets scared by larger dogs. However I am trying to make her meet more dogs in order so hopefully she can become more comfortable around larger dogs.'
   },
   {
     doggoName: 'Lettuce',
     ownerName: 'Vivian',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
-    age: 2,
-    gender: 'F',
-    breed: 'lol',
-    size: 'small',
-    more: 'lol'
+      'Hello, call me Viv! After being obsessed with the doge meme, I decided to adopt my very own Shiba!',
+    age: 5,
+    gender: 'M',
+    breed: 'Shiba Inu',
+    size: 'medium',
+    more: 'I am a university student majoring in mathematics! If you love to talk about math equations, and you think your dog would be a good match for my dog, feel free to swipe right!'
   },
   {
     doggoName: 'Noodles',
     ownerName: 'Tommy',
     description:
       'Hello! Or should I say Woof! I am fun guy who loves to lie in the sun and long walk on the beach. ',
-    age: 2,
-    gender: 'F',
-    breed: 'lol',
+    age: 3,
+    gender: 'M',
+    breed: 'Pug',
     size: 'small',
-    more: 'lol'
+    more: 'My two favourite things in the world are noodles, fried noodles, soup noodles etc, and Noodles my dog! We should chat if you think your dog is cuter than mine!!!'
   },
   {
     doggoName: 'Fish',
     ownerName: 'Ellen',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
-    age: 2,
+      "Hi! My dog's name is Fish, because she loves to swim all the time! If your dog loves to swim too, let's set up a swimming date :D",
+    age: 1,
     gender: 'F',
-    breed: 'lol',
+    breed: 'Jack Russell Terrier',
     size: 'small',
-    more: 'lol'
+    more: 'Other than swimming, Fish loves to play with a Frisbee! We live right next to a park so we would love to meet up and play some competitive frisbee!'
   },
   {
     doggoName: 'Bean',
     ownerName: 'Bob',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
-    age: 2,
+      "Bean and I are new to the city, so we are looking for new friends to show us around the area and play catch together with! Swipe right if you want to meet a cute bean!",
+    age: 5,
     gender: 'F',
-    breed: 'lol',
+    breed: 'Pomeranian',
     size: 'small',
-    more: 'lol'
+    more: 'Bean is a cute bean that is super timid and shy. Please only contact if your dog is small as well.'
   },
   {
     doggoName: 'Orange',
     ownerName: 'Billy',
-    description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
-    age: 2,
-    gender: 'F',
-    breed: 'lol',
+    description: 'After you meet Orange, I will ask you "Orange you glad you met Orange? Swipe right if you and your dog would like to hear more halarious dad jokes!'
+  
+    age: 9,
+    gender: 'M',
+    breed: 'Pomeranian',
     size: 'small',
-    more: 'lol'
+    more: " As you may have noticed, Orange does not get his name from his fur. Message us if you would like to hear the story of how he got his name. "
   },
   {
     doggoName: 'Dragon',
     ownerName: 'Will',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+      'Dragon is a hyper-active dog that is sometimes too friendly. He is searching for a friend who can match his level of energy! Get to know us by starting a conversation!',
     age: 2,
-    gender: 'F',
-    breed: 'lol',
-    size: 'small',
-    more: 'lol'
+    gender: 'M',
+    breed: 'Labradoodle',
+    size: 'Medium',
+    more: 'Dragon certainly roars like a real dragon! He barks really loud and often, so if your dog is easily scared, this might not be the best match.'
   },
   {
     doggoName: 'Yoghurt',
     ownerName: 'Steve',
-    description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
-    age: 2,
+    description:'If you are looking for an energetic playmate for your dog, look no further! Yoghurt is perfect in every way and every angle!'
+    age: 6,
     gender: 'F',
-    breed: 'lol',
-    size: 'small',
-    more: 'lol'
+    breed: 'Pembroke Welsh Corgi',
+    size: 'Medium',
+    more: 'Only downside is that Yoghurt loves to bark at squirrels. We should start chatting if your dog shares the same obsession. '
   },
   {
     doggoName: 'Tomato',
     ownerName: 'Lucas',
-    description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
-    age: 2,
+    description: "Tomato is an extremely well trained dog who absolutely loves go on walks before sundown. If you and your dog would like to accompany us on one of our walks, please let us know!"
+    age: 10,
     gender: 'F',
-    breed: 'lol',
-    size: 'small',
-    more: 'lol'
+    breed: 'Pug',
+    size: 'Medium',
+    more: 'Tomato is a potato'
   },
   {
     doggoName: 'Avocado',
     ownerName: 'Max',
     description:
-      'hello i love doggos. hello i love doggos. hello i love doggos. hello i love doggos. ',
+      'Avocado is a joyful, active, intelligent and easy to train dog with the ability to adapt and integrate to all kinds of social events and situations',
     age: 2,
     gender: 'F',
-    breed: 'lol',
-    size: 'small',
-    more: 'lol'
+    breed: 'White Shepherd',
+    size: 'Large',
+    more: 'Avocado loves running, swimming or playing fetch.'
   }
 ];
 

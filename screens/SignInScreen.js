@@ -28,7 +28,7 @@ class SignInScreen extends React.Component {
           <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
-              source={require("../assets/images/icon.png")}
+              source={require("../assets/images/iconWithName.jpg")}
             />
           </View>
 
@@ -36,14 +36,13 @@ class SignInScreen extends React.Component {
             <Icon name={"ios-person"} size={28} style={styles.inputIcon} />
 
             <TextInput
-                placeholder="Username"
-                placeholderTextColor="gray"
-                style={styles.input}
-                textContentType="username"
-                autoCorrect={false}
-                autoCapitalize="none"
-              />
-
+              placeholder="Username"
+              placeholderTextColor="gray"
+              style={styles.input}
+              textContentType="username"
+              autoCorrect={false}
+              autoCapitalize="none"
+            />
           </View>
 
           <View>
@@ -77,10 +76,14 @@ class SignInScreen extends React.Component {
           >
             <Text style={styles.buttonText}>LOGIN</Text>
           </TouchableOpacity>
-          <Button
-            title="Don't have an account? Sign up"
+          <TouchableOpacity
             onPress={() => this.props.navigation.navigate("UserInfo")}
-          />
+            style={{ alignItems: "center", paddingTop: 4 }}
+          >
+            <Text style={{ color: "#2ea3f2", textDecorationLine: "underline" }}>
+              Don't have an account? Sign up
+            </Text>
+          </TouchableOpacity>
         </ScrollView>
         <KeyboardSpacer />
       </View>
@@ -137,15 +140,14 @@ const styles = StyleSheet.create({
     color: "#FFFFFF"
   },
   logoContainer: {
-    paddingTop: 100,
+    paddingTop: 80,
     alignItems: "center",
     flexGrow: 1,
     justifyContent: "center",
-    paddingVertical: 30
   },
   logo: {
-    width: 120,
-    height: 120,
-    paddingVertical: 30
+    width: 200,
+    height: 200,
+    paddingTop: 20
   }
 });

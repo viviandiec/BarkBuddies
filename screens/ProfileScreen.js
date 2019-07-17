@@ -12,12 +12,12 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function ProfileScreen(props) {
   return (
-    <View style={{ paddingTop: 120 }}>
+    <View style={{ paddingTop: 120, flex: 1, paddingBottom: 32 }}>
       <View style={{ alignItems: 'center' }}>
         <View>
           <Image
             style={{ width: 128, height: 128, borderRadius: 64 }}
-            source={{ uri: 'http://placekitten.com/256/256' }}
+            source={require("../assets/images/doggos/pic_tofu.jpg")}
           />
           <Image
             style={{
@@ -30,7 +30,7 @@ export default function ProfileScreen(props) {
               borderWidth: 6,
               borderColor: '#edfcff'
             }}
-            source={{ uri: 'http://placekitten.com/256/256' }}
+            source={require("../assets/images/users/ellen.jpg")}
           />
         </View>
         <Text style={{ fontSize: 28, fontWeight: 'bold', padding: 16 }}>
@@ -67,6 +67,8 @@ export default function ProfileScreen(props) {
             <Text style={styles.iconLabel}>Edit Dog Profile</Text>
           </View>
         </View>
+      </View>
+      <View style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}>
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => props.navigation.navigate('SignIn')}

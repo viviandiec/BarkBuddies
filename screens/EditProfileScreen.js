@@ -111,18 +111,20 @@ class EditProfile extends React.Component {
             />
           </View>
 
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={() => this.props.navigation.navigate('Profile')}
-            style={
-              !this.validName() || !this.validUsername() || !this.validEmail()
-                ? styles.buttonContainerDisabled
-                : styles.buttonContainer
-            }
-            disabled={!this.validName() || !this.validUsername()}
-          >
-            <Text style={styles.buttonText}>SAVE CHANGES</Text>
-          </TouchableOpacity>
+          <View style={{ paddingTop: 16, paddingBottom: 42 }}>
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress={() => this.props.navigation.navigate('Profile')}
+              style={
+                !this.validName() || !this.validUsername() || !this.validEmail()
+                  ? styles.buttonContainerDisabled
+                  : styles.buttonContainer
+              }
+              disabled={!this.validName() || !this.validUsername()}
+            >
+              <Text style={styles.buttonText}>SAVE CHANGES</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
         <KeyboardSpacer />
       </View>

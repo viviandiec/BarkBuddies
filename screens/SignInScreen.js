@@ -74,6 +74,7 @@ class SignInScreen extends React.Component {
               placeholder="Password"
               placeholderTextColor="gray"
               style={styles.input}
+              onChangeText={password => this.setState({ password })}
               secureTextEntry={this.state.hidePassword}
               textContentType="password"
               autoCorrect={false}
@@ -96,7 +97,7 @@ class SignInScreen extends React.Component {
 
           <TouchableOpacity
             style={styles.buttonContainer}
-            onPress={this.clickHandler} 
+            onPress={this.clickHandler}
           >
             <Text style={styles.buttonText}>LOGIN</Text>
           </TouchableOpacity>

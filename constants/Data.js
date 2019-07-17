@@ -47,7 +47,7 @@ export const cards = [
     doggoName: 'Bean',
     ownerName: 'Bob',
     description:
-      "Bean and I are new to the city, so we are looking for new friends to show us around the area and play catch together with! Swipe right if you want to meet a cute bean!",
+      "Bean and I are new to the city, so we are looking for new friends to show us around the area! Swipe right to meet a cute bean!",
     age: 5,
     gender: 'F',
     breed: 'Pomeranian',
@@ -57,7 +57,7 @@ export const cards = [
   {
     doggoName: 'Orange',
     ownerName: 'Billy',
-    description: 'After you meet Orange, I will ask you "Orange you glad you met Orange? Swipe right if you and your dog would like to hear more halarious dad jokes!',
+    description: 'After meeting Orange, I will ask you "Orange you glad you met Orange? Swipe right if you and your dog would like to hear more hilarious dad jokes!',
     age: 9,
     gender: 'M',
     breed: 'Pomeranian',
@@ -68,7 +68,7 @@ export const cards = [
     doggoName: 'Dragon',
     ownerName: 'Will',
     description:
-      'Dragon is a hyper-active dog that is sometimes too friendly. He is searching for a friend who can match his level of energy! Get to know us by starting a conversation!',
+      'Dragon is a hyper-active dog that is sometimes too friendly. He is searching for a friend who can match his level of energy! Start a conversation with us!',
     age: 2,
     gender: 'M',
     breed: 'Labradoodle',
@@ -88,7 +88,7 @@ export const cards = [
   {
     doggoName: 'Tomato',
     ownerName: 'Lucas',
-    description: "Tomato is an extremely well trained dog who absolutely loves go on walks before sundown. If you and your dog would like to accompany us on one of our walks, please let us know!",
+    description: "Tomato is an extremely well trained dog who absolutely loves go on walks before sundown. Please let us know if you'd like to join in!",
     age: 10,
     gender: 'F',
     breed: 'Pug',

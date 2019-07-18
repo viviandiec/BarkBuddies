@@ -14,7 +14,7 @@ export const cards = [
     doggoName: 'Lettuce',
     ownerName: 'Vivian',
     description:
-      'Hello, call me Viv! After being obsessed with the doge meme, I decided to adopt my very own Shiba!',
+      'After being obsessed with the doge meme, I decided to adopt my very own Shiba!',
     age: 5,
     gender: 'M',
     breed: 'Shiba Inu',
@@ -25,7 +25,7 @@ export const cards = [
     doggoName: 'Noodles',
     ownerName: 'Tommy',
     description:
-      'Hello! Or should I say Woof! I am fun guy who loves to lie in the sun and long walk on the beach. ',
+      'Hello! Or should I say Woof! I am fun guy who loves to lie in the sun and walk on the beach. ',
     age: 3,
     gender: 'M',
     breed: 'Pug',
@@ -36,7 +36,7 @@ export const cards = [
     doggoName: 'Fish',
     ownerName: 'Ellen',
     description:
-      "Hi! My dog's name is Fish, because she loves to swim all the time! If your dog loves to swim too, let's set up a swimming date :D",
+      "Hi! My dog's name is Fish, because she loves to swim all the time!",
     age: 1,
     gender: 'F',
     breed: 'Jack Russell Terrier',
@@ -47,7 +47,7 @@ export const cards = [
     doggoName: 'Bean',
     ownerName: 'Bob',
     description:
-      "Bean and I are new to the city, so we are looking for new friends to show us around the area! Swipe right to meet a cute bean!",
+      "Bean and I are new to the city, so we are looking for new friends to show us around the area!",
     age: 5,
     gender: 'F',
     breed: 'Pomeranian',
@@ -57,7 +57,7 @@ export const cards = [
   {
     doggoName: 'Orange',
     ownerName: 'Billy',
-    description: 'After meeting Orange, I will ask you "Orange you glad you met Orange? Swipe right if you and your dog would like to hear more hilarious dad jokes!',
+    description: 'After meeting Orange, I will ask you "Orange you glad you met Orange?',
     age: 9,
     gender: 'M',
     breed: 'Pomeranian',
@@ -68,7 +68,7 @@ export const cards = [
     doggoName: 'Dragon',
     ownerName: 'Will',
     description:
-      'Dragon is a hyper-active dog that is sometimes too friendly. He is searching for a friend who can match his level of energy! Start a conversation with us!',
+      'Dragon is a hyper-active dog that is searching for a friend who can match his level of energy!',
     age: 2,
     gender: 'M',
     breed: 'Labradoodle',
@@ -78,7 +78,7 @@ export const cards = [
   {
     doggoName: 'Yoghurt',
     ownerName: 'Steve',
-    description:'If you are looking for an energetic playmate for your dog, look no further! Yoghurt is perfect in every way and every angle!',
+    description:'If you are looking for an energetic playmate for your dog, look no further!',
     age: 6,
     gender: 'F',
     breed: 'Pembroke Welsh Corgi',
@@ -88,7 +88,7 @@ export const cards = [
   {
     doggoName: 'Tomato',
     ownerName: 'Lucas',
-    description: "Tomato is an extremely well trained dog who absolutely loves go on walks before sundown. Please let us know if you'd like to join in!",
+    description: "Tomato is an extremely well trained dog who absolutely loves go on walks before sundown.",
     age: 10,
     gender: 'F',
     breed: 'Pug',
@@ -99,7 +99,7 @@ export const cards = [
     doggoName: 'Avocado',
     ownerName: 'Max',
     description:
-      'Avocado is a joyful, active, intelligent and easy to train dog with the ability to adapt and integrate to all kinds of social events and situations',
+      'Avocado is a joyful, active, intelligent dog. Message us to become friends!',
     age: 2,
     gender: 'F',
     breed: 'White Shepherd',

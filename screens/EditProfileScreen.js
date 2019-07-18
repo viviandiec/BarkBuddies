@@ -156,8 +156,8 @@ const styles = StyleSheet.create({
   },
   inputIcon: {
     position: 'absolute',
-    top: 35,
-    right: 25,
+    top: 37,
+    right: 18,
     zIndex: 1,
     opacity: 0.5,
     color: 'green'

@@ -121,7 +121,7 @@ class SignUpScreenName extends React.Component {
 
           <TouchableOpacity
             style={styles.buttonContainer}
-            onPress={this.clickHandler} 
+            onPress={this.clickHandler}
           >
             <Text style={styles.buttonText}>NEXT</Text>
           </TouchableOpacity>
@@ -158,8 +158,8 @@ const styles = StyleSheet.create({
   },
   inputIcon: {
     position: 'absolute',
-    top: 35,
-    right: 25,
+    top: 37,
+    right: 18,
     zIndex: 1,
     opacity: 0.5,
     color: 'green'

@@ -30,7 +30,7 @@ export default function ProfileScreen(props) {
               borderWidth: 6,
               borderColor: '#edfcff'
             }}
-            source={require("../assets/images/users/ellen.jpg")}
+            source={require("../assets/images/users/viv.jpeg")}
           />
         </View>
         <Text style={{ fontSize: 28, fontWeight: 'bold', padding: 16 }}>

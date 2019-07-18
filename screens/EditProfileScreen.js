@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Platform,
   StyleSheet,
   View,
   Text,
@@ -47,10 +48,28 @@ class EditProfile extends React.Component {
             <TouchableOpacity>
               <Image
                 style={styles.logo}
-                source={require('../assets/images/ProfilePicture.png')}
+                source={require("../assets/images/users/viv.jpeg")}
               />
+              <View
+                style={{
+                  alignItems: "center",
+                  width: 42,
+                  height: 42,
+                  position: "absolute",
+                  right: -8,
+                  bottom: -8,
+                  backgroundColor: "lightgrey",
+                  borderRadius: 26
+                }}
+              >
+                <Icon
+                  name={Platform.OS === "ios" ? "ios-camera" : "md-camera"}
+                  size={24}
+                  color="white"
+                  style={{ paddingTop: 8 }}
+                />
+              </View>
             </TouchableOpacity>
-            <Text>Change profile picture!</Text>
           </View>
 
           <View>
@@ -120,7 +139,7 @@ class EditProfile extends React.Component {
                   ? styles.buttonContainerDisabled
                   : styles.buttonContainer
               }
-              disabled={!this.validName() || !this.validUsername()}
+              disabled={!this.validName() || !this.validUsername() || !this.validEmail()}
             >
               <Text style={styles.buttonText}>SAVE CHANGES</Text>
             </TouchableOpacity>
@@ -193,6 +212,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 100,
-    height: 100
+    height: 100,
+    borderRadius: 50
   }
 });

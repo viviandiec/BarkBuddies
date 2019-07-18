@@ -22,7 +22,7 @@ export default function MessageListItem(props) {
           <Text note>{convertToTimeString(props.date)}</Text>
         </View>
         <Text note numberOfLines={2} style={{fontSize: 15}}>
-          {props.message}
+          {props.message + "\n"}
         </Text>
       </Body>
     </ListItem>

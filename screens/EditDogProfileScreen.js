@@ -121,7 +121,7 @@ class EditDogProfile extends React.Component {
               />
             </View>
             <View>
-              <Text style={styles.label}>About me</Text>
+              <Text style={styles.label}>About me (optional)</Text>
               <TextInput
                 {...this.props}
                 multiline={true}

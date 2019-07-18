@@ -142,12 +142,14 @@ class DogInfoScreen extends React.Component {
             {(this.state.beenClicked && !this.validBreed()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Breed is mandatory</Text> : null}
           </View>
 
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={this.clickHandler}
-          >
-            <Text style={styles.buttonText}>FINISH PROFILE</Text>
-          </TouchableOpacity>
+          <View style={{ paddingBottom: 42 }}>
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress={this.clickHandler}
+            >
+              <Text style={styles.buttonText}>FINISH PROFILE</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
         <KeyboardSpacer />
       </View>

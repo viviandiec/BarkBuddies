@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import Card from '../components/Card';
 import { cards } from '../constants/Data';
 
@@ -17,15 +17,37 @@ class DescriptionScreen extends React.Component {
     return (
       <ScrollView>
         <Card description={true} index={id} />
-        <View style={{ height: 300, paddingHorizontal: 18, marginTop: 10 }}>
+        <View
+          style={{
+            marginHorizontal: 30,
+            height: 20,
+            borderBottomColor: '#4db8c7',
+            borderBottomWidth: 2
+          }}
+        />
+        <View
+          style={{ paddingHorizontal: 18, marginTop: 10, marginBottom: 30 }}
+        >
           <View>
-            <Text>Age: {cards[id].age}</Text>
-            <Text>Gender: {cards[id].gender}</Text>
-            <Text>Breed: {cards[id].breed}</Text>
-            <Text>Size: {cards[id].size}</Text>
+            <View style={styles.container}>
+              <Text style={styles.header}>Age: </Text>
+              <Text style={styles.info}>{cards[id].age}</Text>
+            </View>
+            <View style={styles.container}>
+              <Text style={styles.header}>Gender: </Text>
+              <Text style={styles.info}>{cards[id].gender}</Text>
+            </View>
+            <View style={styles.container}>
+              <Text style={styles.header}>Breed: </Text>
+              <Text style={styles.info}>{cards[id].breed}</Text>
+            </View>
+            <View style={styles.container}>
+              <Text style={styles.header}>Size: </Text>
+              <Text style={styles.info}>{cards[id].size}</Text>
+            </View>
           </View>
-          <View>
-            <Text>More about Me!</Text>
+          <View style={{ marginTop: 8 }}>
+            <Text style={styles.header}>More about Me!</Text>
             <Text>{cards[id].more}</Text>
           </View>
         </View>
@@ -33,5 +55,19 @@ class DescriptionScreen extends React.Component {
     );
   }
 }
-
+const styles = StyleSheet.create({
+  header: {
+    color: '#3599a7',
+    fontSize: 18
+  },
+  container: {
+    flexDirection: 'row',
+    marginVertical: 8,
+    alignItems: 'center'
+  },
+  info: {
+    fontSize: 16,
+    paddingTop: 2
+  },
+});
 export default DescriptionScreen;

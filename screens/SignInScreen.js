@@ -16,10 +16,10 @@ class SignInScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this.clickHandler = this.clickHandler.bind(this)
+    this.clickHandler = this.clickHandler.bind(this);
 
     this.state = {
-      username:'',
+      username: '',
       password: '',
       hidePassword: true,
       beenClicked: false
@@ -27,10 +27,10 @@ class SignInScreen extends React.Component {
   }
 
   clickHandler() {
-    this.setState({beenClicked: true})
+    this.setState({ beenClicked: true });
 
     if (this.validUsername() && this.validPassword())
-      this.props.navigation.navigate('App')
+      this.props.navigation.navigate('App');
   }
 
   validUsername() {
@@ -64,7 +64,13 @@ class SignInScreen extends React.Component {
               autoCorrect={false}
               autoCapitalize="none"
             />
-            {(this.state.beenClicked && !this.validUsername()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Invalid username</Text> : null}
+            {this.state.beenClicked && !this.validUsername() ? (
+              <Text
+                style={{ color: 'red', paddingHorizontal: 10, paddingTop: 2 }}
+              >
+                Invalid username
+              </Text>
+            ) : null}
           </View>
 
           <View style={styles.textInput}>
@@ -85,14 +91,20 @@ class SignInScreen extends React.Component {
               <Icon
                 name={'ios-eye'}
                 size={26}
-                style={this.state.hidePassword ? null : { color: '#4db8c7' }}
+                style={this.state.hidePassword ? null : { color: '#3599a7' }}
                 onPress={() =>
                   this.setState({ hidePassword: !this.state.hidePassword })
                 }
                 onChangeText={password => this.setState({ password })}
               />
             </TouchableOpacity>
-            {(this.state.beenClicked && !this.validPassword()) ? <Text style={{color:'red', paddingHorizontal: 10, paddingTop: 2}}>Invalid password</Text> : null}
+            {this.state.beenClicked && !this.validPassword() ? (
+              <Text
+                style={{ color: 'red', paddingHorizontal: 10, paddingTop: 2 }}
+              >
+                Invalid password
+              </Text>
+            ) : null}
           </View>
 
           <TouchableOpacity

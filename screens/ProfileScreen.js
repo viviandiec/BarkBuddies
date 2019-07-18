@@ -17,7 +17,7 @@ export default function ProfileScreen(props) {
         <View>
           <Image
             style={{ width: 128, height: 128, borderRadius: 64 }}
-            source={require("../assets/images/doggos/pic_tofu.jpg")}
+            source={require("../assets/images/mydog.jpeg")}
           />
           <Image
             style={{
@@ -30,7 +30,7 @@ export default function ProfileScreen(props) {
               borderWidth: 6,
               borderColor: '#edfcff'
             }}
-            source={require("../assets/images/users/viv.jpeg")}
+            source={require("../assets/images/jen.png")}
           />
         </View>
         <Text style={{ fontSize: 28, fontWeight: 'bold', padding: 16 }}>

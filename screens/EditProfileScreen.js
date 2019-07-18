@@ -17,9 +17,9 @@ class EditProfile extends React.Component {
     super(props);
 
     this.state = {
-      name: 'John',
-      username: 'john_smith99',
-      email: 'john_smith@gmail.com'
+      name: 'Jen',
+      username: 'jen_erica99',
+      email: 'jen_erica@gmail.com'
     };
   }
 
@@ -48,7 +48,7 @@ class EditProfile extends React.Component {
             <TouchableOpacity>
               <Image
                 style={styles.logo}
-                source={require("../assets/images/users/viv.jpeg")}
+                source={require("../assets/images/jen.png")}
               />
               <View
                 style={{

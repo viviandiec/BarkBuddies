@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, StyleSheet, View, Text, TouchableOpacity, Modal } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Modal
+} from 'react-native';
 import { cards, doggoImages } from '../constants/Data';
 
 class StyledModal extends React.Component {
@@ -26,15 +33,16 @@ class StyledModal extends React.Component {
               You matched with {cards[this.props.index - 1].doggoName}!
             </Text>
             <View style={{ flexDirection: 'row' }}>
-              <Image style={styles.img} source={getPic(this.props.index - 1)} />
               <Image style={styles.img} source={getPic(90)} />
+              <Image style={styles.img} source={getPic(this.props.index - 1)} />
             </View>
             <Text style={{ color: '#FFF', fontSize: 16, textAlign: 'center' }}>
               Go to the chat page to start talking!
             </Text>
             <TouchableOpacity
               style={styles.buttonContainer}
-              onPress={() => this.setState({ modalVisible: false })}>
+              onPress={() => this.setState({ modalVisible: false })}
+            >
               <Text style={styles.buttonText}>CLOSE</Text>
             </TouchableOpacity>
           </View>
@@ -48,8 +56,7 @@ getPic = num => {
   if (num < 12) {
     return doggoImages[num];
   }
-  return doggoImages[0];
-  //lolol TODO
+  return require('../assets/images/mydog.jpeg');
 };
 
 const styles = StyleSheet.create({
@@ -58,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)'
+    backgroundColor: 'rgba(0, 0, 0, 0.9)'
   },
   inside: {
     width: 300,

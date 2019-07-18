@@ -46,7 +46,7 @@ class EditDogProfile extends React.Component {
             <TouchableOpacity>
               <Image
                 style={styles.logo}
-                source={require("../assets/images/doggos/pic_tofu.jpg")}
+                source={require("../assets/images/mydog.jpeg")}
               />
               <View
                 style={{

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { cards, doggoImages } from '../constants/Data';
 
-class StyledModal extends React.Component {
+class BarkInfoScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,26 +19,40 @@ class StyledModal extends React.Component {
 
   render() {
     return (
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={this.state.modalVisible}
-      >
+      <Modal animationType="fade" transparent={true} visible={true}>
         <View style={styles.modal}>
           <View style={styles.inside}>
-            <Text style={{ color: '#FFF', fontSize: 20 }}>
-              You matched with {cards[this.props.index - 1].doggoName}!
+            <Text
+              style={{
+                color: '#4db8c7',
+                fontSize: 22,
+                marginBottom: 15,
+                fontWeight: 'bold'
+              }}
+            >
+              Welcome to Bark Buddies!
             </Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Image style={styles.img} source={getPic(90)} />
-              <Image style={styles.img} source={getPic(this.props.index - 1)} />
-            </View>
-            <Text style={{ color: '#FFF', fontSize: 16, textAlign: 'center' }}>
-              Go to the chat page to start talking!
+            <Text style={{ color: '#FFF', fontSize: 16, marginTop: 15 }}>
+              Bark Buddies is a mobile app that connects dogs and their owners
+              to other dogs and their owners in order to create a strong sense
+              of community and friendship.
+            </Text>
+            <Text
+              style={{
+                color: '#FFF',
+                fontSize: 16,
+                marginBottom: 15,
+                marginTop: 15
+              }}
+            >
+              To access the swipe click on the paw. Once you are there, you can
+              swipe right to chat and swipe left to skip. To view a list of your
+              chats, click on the message icon. To view or change you profile,
+              click on the profile icon
             </Text>
             <TouchableOpacity
               style={styles.buttonContainer}
-              onPress={() => this.setState({ modalVisible: false })}
+              onPress={() => this.props.navigation.navigate('Profile')}
             >
               <Text style={styles.buttonText}>CLOSE</Text>
             </TouchableOpacity>
@@ -66,7 +80,6 @@ const styles = StyleSheet.create({
   },
   inside: {
     width: 300,
-    height: 300,
     borderRadius: 5,
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -94,4 +107,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default StyledModal;
+export default BarkInfoScreen;

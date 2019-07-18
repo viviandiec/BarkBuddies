@@ -13,11 +13,25 @@ import { Ionicons } from '@expo/vector-icons';
 export default function ProfileScreen(props) {
   return (
     <View style={{ paddingTop: 120, flex: 1, paddingBottom: 32 }}>
+      <TouchableOpacity
+        onPress={() => props.navigation.navigate('BarkInfo')}
+        style={styles.infoIcon}
+      >
+        <Ionicons
+          size={40}
+          name={
+            Platform.OS === 'ios'
+              ? 'ios-information-circle'
+              : 'md-information-circle'
+          }
+          color={'#494848'}
+        />
+      </TouchableOpacity>
       <View style={{ alignItems: 'center' }}>
         <View>
           <Image
             style={{ width: 128, height: 128, borderRadius: 64 }}
-            source={require("../assets/images/mydog.jpeg")}
+            source={require('../assets/images/mydog.jpeg')}
           />
           <Image
             style={{
@@ -30,7 +44,7 @@ export default function ProfileScreen(props) {
               borderWidth: 6,
               borderColor: '#edfcff'
             }}
-            source={require("../assets/images/jen.png")}
+            source={require('../assets/images/jen.png')}
           />
         </View>
         <Text style={{ fontSize: 28, fontWeight: 'bold', padding: 16 }}>
@@ -68,7 +82,9 @@ export default function ProfileScreen(props) {
           </View>
         </View>
       </View>
-      <View style={{ flex: 1, justifyContent: "flex-end", alignItems: "center" }}>
+      <View
+        style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}
+      >
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => props.navigation.navigate('SignIn')}
@@ -102,6 +118,11 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: 'center',
     color: '#FFFFFF'
+  },
+  infoIcon: {
+    position: 'absolute',
+    right: 25,
+    top: 40
   }
 });
 
